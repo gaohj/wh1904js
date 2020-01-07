@@ -338,5 +338,149 @@ alert(python.length);//5
 
 
 
+## 系统函数  操作数组  
 
+* 栈方法  
+
+  * push()
+  * pop()
+
+  ```js
+  var box = ['苍老师','小泽老师','龙老师','波老师']
+          console.log(box.length);
+          console.log(box.push('吉泽老师','东京热系列','xx系列')); //返回的是插入元素之后数组的长度  
+          console.log(box);
+          console.log(box.pop()); //返回的是数组的最后一个元素 吉泽老师  
+          console.log(box);
+  
+  ```
+
+  
+
+* 队列方法   
+
+  * shift()
+  * unshift()
+
+  ```
+   var language = ['html','c','c++'];
+          console.log(language.length);
+          console.log(language.unshift('python','go','R','javascript')); //返回的是插入元素之后数组的长度  
+          console.log(language);//["python", "go", "R", "javascript", "html", "c", "c++"]
+          console.log(language.shift());//弹出数组的第一个元素  
+  ```
+
+  
+
+### 排序算法  
+
+* reverse()
+* sort() 
+
+```
+	    var box = [11,12,3,24,45,36,7];
+        //var box = ['a','f','c','g','e'];
+        //alert(box.reverse());//7,6,5,4,3,2,1  
+        //alert(box.reverse());//e,d,c,b,a
+        //因为这个方法 对数字和字母同时生效 
+        //但是 只能连续的数字 或者连续的字母结果准确如果不连续 造成结果不准确 
+        
+         var box = [117,26,235,44,53,62,11]; //sort 和 reverse 对字母也生效  所以结果可能不准确  
+         但是我们像排序  可以自己写方法 干预结果  
+         
+         
+         console.log(box.sort());// [11, 117, 235, 26, 44, 53, 62]
+        console.log(box.sort(compare));//[11, 26, 44, 53, 62, 117, 235]
+        console.log(box.reverse(compare));//[235, 117, 62, 53, 44, 26, 11] 
+        
+         function compare(num1,num2){
+            if(num1<num2){
+                return -1; //正序排列   如果想倒序这里就是 1 
+            }else{
+                return 1;   
+            }
+        }
+
+```
+
+
+
+ps: 以上的操作 原数组结果发生了改变   
+
+
+
+### 数组操作方法   将结果放到新的数组里 原数组保持不变  
+
+* concat()
+
+```js
+var ximen = ['俯卧撑','单手俯卧撑','两只手指'];
+        var test = ximen.concat('不允许用手');
+        console.log(ximen);//['俯卧撑','单手俯卧撑','两只手指']
+        console.log(test);//['俯卧撑','单手俯卧撑','两只手指','不允许用手']; 对原来的数组没有产生任何影响
+```
+
+
+
+* slice()
+
+```
+var liushui = ['居家生活','潮流电子','时尚衣品','转账红包'];
+        var zhifubao = liushui.slice(1,3);
+        console.log(liushui);//["居家生活", "潮流电子", "时尚衣品", "转账红包"]
+        console.log(zhifubao); //["潮流电子", "时尚衣品"]包含1 不包含3   
+        console.log(liushui.slice(1));//包含1 从1截取到最后  
+        console.log(liushui.slice(0));//包含0 从0截取到最后  
+
+        //slice(0) 相当于复制了一个数组 
+```
+
+
+
+
+
+### 复制数组  
+
+* slice(0)
+
+* ```
+   var person = ['zhangsan','lisi','wangwu','zhaoliu'];
+  
+          var new_person = [];
+  
+          for(i=0;i<person.length;i++){
+              new_person.push(person[i]);
+          }
+  
+          console.log(new_person);
+          console.log(person);
+  ```
+
+
+
+### 数组的中间插入 及替换删除等功能  splice 
+
+````js
+#插入功能
+   var office = ['qq','weixin','dingding'];
+        var box2 = office.splice(2,0,'yinxiangbiji','youdaoyunbiji');
+        console.log(office); //["qq", "weixin", "yinxiangbiji", "youdaoyunbiji", "dingding"]
+        //从下标为2的位置截取0个 然后在下标2的位置从插入两个元素 
+        console.log(box2);//空 因为上面第二个参数是0 所以这里为空
+        
+#删除功能  
+
+  var office = ['qq','weixin','dingding'];
+        var box2 = office.splice(0,2);//从第0个位置开始 截取2个
+        console.log(box2);// ["qq", "weixin"]
+        console.log(office);//["dingding"]
+
+
+#替换功能   
+
+		var office = ['qq','weixin','dingding'];
+        var box2 = office.splice(1,2,'momo','tantan');
+        console.log(office);//["qq", "momo", "tantan"]
+        console.log(box2);//["weixin", "dingding"]
+````
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组排序</title>
+</head>
+<body>
+    <script>
+        function compare(num1,num2){
+            if(num1<num2){
+                return -1; //正序排列   如果想倒序这里就是 1 
+            }else{
+                return 1;   
+            }
+        }
+
+        var box = [117,26,235,44,53,62,11];
+        //var box = ['a','f','c','g','e'];
+        //alert(box.reverse());//7,6,5,4,3,2,1  
+        //alert(box.reverse());//e,d,c,b,a
+        //因为这个方法 对数字和字母同时生效 
+        //但是 只能连续的数字 或者连续的字母结果准确如果不连续 造成结果不准确 
+        console.log(box.sort());// [11, 117, 235, 26, 44, 53, 62]
+        console.log(box.sort(compare));//[11, 26, 44, 53, 62, 117, 235]
+        console.log(box.reverse(compare));//[235, 117, 62, 53, 44, 26, 11] 
+
+        var text = ['a','f','c','g','e','d','b'];
+        console.log(text.sort());
+        console.log(text.reverse());
+
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>
