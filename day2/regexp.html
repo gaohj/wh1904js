@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        // var reg =  new RegExp();
+
+        // alert(reg instanceof RegExp);//true
+        // var reg = new RegExp('kangbazi','i');
+        // var str = '没有金刚钻,当不了kangbazi';
+        
+        // console.log(reg.test(str));//true 
+        // console.log(reg.exec(str));
+
+
+        // var reg = /google/i;
+        // var str = 'google  is so good';
+        // console.log(reg.exec(str));
+        // console.log(reg.test(str));
+
+
+        // var tests = /haha/igm;
+        // var strs = 'haha what a fucking day';
+        // console.log(tests.test(strs));
+
+        var reg = /boyfriend/ig;
+        var str = 'Boyfriend美女快把我领走,吃的不多,能啪啪敲代码赚钱,绝对最好的boyfriend';
+        console.log(str.match(reg));//["Boyfriend", "boyfriend"]
+        console.log(str.match(reg).length);//2
+
+        console.log(str.search(reg));//0如果匹配到返回所在的下标位置 
+        //否则返回-1 
+        console.log(str.replace(reg,'夫君'));//
+        //夫君美女快把我领走,吃的不多,能啪啪敲代码赚钱,绝对最好的夫君
+
+        var reg1 = /,/ig;
+        console.log(str.split(reg1));//["Boyfriend美女快把我领走", "吃的不多", "能啪啪敲代码赚钱", "绝对最好的boyfriend"]
+
+
+
+
+
+    </script>
+</body>
+</html>
