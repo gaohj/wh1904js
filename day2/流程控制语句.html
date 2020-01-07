@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程控制语句</title>
+    <style>
+        table tr{
+            border: 1px solid pink;
+        }
+
+        table tr th {
+            border: 1px solid pink;
+            color: rebeccapurple;
+            padding: 10px;
+        }
+    
+    </style>
+</head>
+<body>
+
+
+<script>
+    // var box = 100;
+    // // if(box>99) alert('box大于99');
+    // // if(box>99) 
+    // //     alert('box大于99');
+    // if(box>=100){
+    //     alert('特别优秀');
+    // }else if(box>=90){
+    //     alert('优秀');
+    // }else if(box>=80){
+    //     alert('优');
+    // }else if(box>=70){
+    //     alert('优良');
+    // }else if(box>=60){
+    //     alert('及格')
+    // }else{
+    //     alert('不及格')
+    // }
+    // switch(box){
+    //     case 100:
+    //         console.log('优秀');
+    //         break; //表示为了防止穿透到下面造成结果污染
+    //     case 80:
+    //         console.log('还行吧')
+    //         break;
+    //     case 60:
+    //         console.log('及格')
+    //         break;
+    //     default:
+    //         console.log('革命尚未成功,通知仍需努力')
+    // }
+    // var box = 6;
+    // do{
+    //     console.log(box);
+    //     box++;
+    // }while(box <= 10);  //先运行一次 再判断  
+    // var box = 1;
+    // while(box <= 5){
+    //     console.log(box);
+    //     box++;
+    // }
+    // for(var box=1;box<=5;box++){
+    //     console.log(box);
+
+    // }
+    // document.write('别追公交车了追我吧')
+    // document.write('<table>');
+    // for(var i=9;i>=1;i--){
+    //     document.write('<tr>');
+    //         for(var j=1;j<=i;j++){
+    //             document.write('<th>'+i+"*"+j+'='+(i*j)+'</th>');
+    //         }
+    //     document.write('</tr>');
+    // }
+    // document.write('</table>');
+
+    var person = {
+        'name':'李白',
+        'age':28,
+        'height':'178cm',
+
+    }
+
+    // for(var p in person){
+    //     console.log(p)
+    // }
+
+    var n = person.name;
+    var a = person.age;
+    var h = person.height;
+
+    console.log(n,a,h);
+
+    with(person){
+        var n =name;
+        var a= age;
+        var h = height;
+    }
+    console.log(n,a,h);
+</script>
+    <div>墙壁 眼睛 膝盖 wall  eye  knee</div>
+</body>
+</html>

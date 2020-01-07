@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>parsefloat</title>
+</head>
+<body>
+    <script>
+        console.log(typeof parseFloat('12.34')) //12.34  number 
+        console.log(parseFloat('123lee')) //123
+        console.log(parseFloat('0xB')) //0 不认16进制   
+        console.log(parseFloat('12.34.56'))//12.34 只认一个小数点  
+        console.log(parseFloat('01234.56'))//1234.56
+        console.log(parseFloat('12.34e10'))//123400000000
+
+    </script>
+</body>
+</html>

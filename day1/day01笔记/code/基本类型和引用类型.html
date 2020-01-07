@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本类型和引用类型</title>
+</head>
+<body>
+    <script>
+        var box = 10;
+
+        var test = box; 
+        box+=1;
+        test+=2;
+        console.log(box);
+        console.log(test)
+        // 上面是基本类型 也就是深拷贝  修改box不会改变test的结果   
+        
+        var a = {
+            name:'kangbazi',
+            age:18,
+            eat:function(){
+                console.log('潘金莲为什么会嫁给武大郎呢?')
+            }
+        }
+
+        var b = a;
+
+        b.name = '五大三粗';
+
+        console.log(b.name);
+        console.log(a.name);
+    
+    
+    </script>
+</body>
+</html>
