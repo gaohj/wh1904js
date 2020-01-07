@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>表单验证</title>
+<style type="text/css">
+	input[type=text], input[type=password] {
+		width: 150px;
+		height: 15px;
+	}
+</style>
+<script>
+	function usernameCheck(){
+		
+
+	}
+
+
+
+
+</script>
+</head>
+<body>
+	<fieldset style="width: 500px; margin: 0px auto;">
+		<b>注册新用户</b>
+		<form action="success.html" method="post">
+			<table align="center" width="500" cellpadding="5" >
+				<tr>
+					<td width="30%" align="right">账户:</td>
+					<td>
+						<input type="text" id="username" />
+						<span id="usernameSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">密码:</td>
+					<td>
+						<input type="password" id="password">
+						<span id="passwordSpan"></span><!-- 提醒错误信息 -->
+					</td>
+				</tr>
+				<tr>
+					<td align="right">确认密码:</td>
+					<td>
+						<input type="password" id="confirm">
+						<span id="confirmSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">邮箱号:</td>
+					<td>
+						<input type="text" id="email" />
+						<span id="emailSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">学历:</td>
+					<td>
+						<select id="edu" >
+							<option value="">-请选择学历-</option>
+							<option value="bj">本科</option>
+							<option value="cd">研究生</option>
+							<option value="gz">博士</option>
+						</select>
+						<span id="eduSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">性别:</td>
+					<td>
+						<label><input type="radio" name="gender" value="male" /> 男 </label> 
+						<label><input type="radio" name="gender" value="female"  /> 女 </label>
+						<span id="genderSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">兴趣:</td>
+					<td>
+						<label><input type="checkbox" name="interest" value="somke" > 吃饭 </label> 
+						<label><input type="checkbox" name="interest" value="drink" onclick="interestCheck()"> 睡觉 </label> 
+						<label><input type="checkbox" name="interest" value="tangtou" onclick="interestCheck()"> 打豆豆 </label> 
+						<span id="interestSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" value="注册新用户"></td>
+				</tr>
+			</table>
+		</form>
+	</fieldset>
+	<script type="text/javascript">
+//			var test=document.getElementsByTagName('b');
+//			alert(test.length);
+//			test[0].onmouseover = function(){
+//				alert("do not touch me!");
+//			}
+	</script>
+</body>
+</html>
