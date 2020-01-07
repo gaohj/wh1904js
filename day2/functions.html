@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+        // function test(x,y){ //形参
+        //     console.log("您输入的第一个参数是:"+x+";"+"第二个参数是:"+y); //实参
+
+        // }
+
+        // test(5,6);
+
+        // function sums(num1,num2){
+        //     return num1+num2;
+        // }
+        
+        // alert(sums(10,20));
+
+        // //我不知道你要传多少参数
+        // function box(){
+        //     // return arguments[0] + arguments[4]; 
+        //     //第一个参数 和第五个参数的和  
+        //     return arguments.length; //参数的个数
+        // }
+
+        // alert(box(11,2,3,4,50,6,7,8,9));
+        
+
+        // function box(){
+        //     var sums = 0;
+        //     if(arguments.length == 0){
+        //         return sums;
+        //     }
+        //     for(var i=0;i<arguments.length;i++){
+        //             sums += arguments[i];
+        //     }
+        //     return sums;
+        // }
+        // alert(box());
+
+        // var box = 'pink';
+        // function color1(){
+
+        //     alert(box); //局部可以调用全局  
+
+        // } 
+        // color1(); //pink
+
+        // var color = 'pink';
+        // function color2(){
+        //     var color = 'red'
+        //     alert(color); //局部可以调用自己 
+
+        // } 
+        // color2(); //red
+
+        // function color3(){
+        //      var color = 'red'
+    
+        // } 
+        // alert(color); //提示color 未定义 
+        
+        // 局部可以调用全局 可以调用自己内部的  
+        // 全局不可以调用局部变量
+        
+    // if(true){
+    //     var color = 'orange';
+    // }
+
+    // alert(color); //返回orange 说明 if 没有作用域
+
+    // for(var i=0;i<10;i++){
+    //     var color = 'green';
+    // }
+    // alert(color);  //返回green 说明 for 也没有作用域
+
+    // var box = ['a','b','c'];
+    // alert(box instanceof Array);//true  
+
+    // var test = {
+
+    // }
+    // alert(test instanceof Object); //true
+    // var box = new Object();
+    // box.name = '小文';
+    // box.age = 18;
+
+    // alert(box.name); //小文
+    // alert(box instanceof Object); //true
+
+     var person = {
+         'name':'kangbazi',
+         'age':18,
+         'eat':function(num){
+             return '恭喜'+num+'大吉大利,今晚吃鸡';
+         }
+     }
+
+     alert(person.eat('小文'))
+    </script>
+</body>
+</html>

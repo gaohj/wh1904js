@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组</title>
+</head>
+<body>
+    <script>
+        // var box = []; //生命一个空数组 
+        // // alert(box.length); //数组的长度  0  
+        // var test = [1,2,3,];//不建议这么命名 ie8以上 输入3
+        // //以下输出4
+        // var test = [1,2,3,99]; 
+
+        // //
+        // // alert(test.length);
+        // alert(test[test.length-1]);//数组的最后一个元素
+        // //最后一个元素的下标位 数组的长度-1 
+        // //数组的下标从0开始的   
+        // var box = [11,23,45,64];
+        // alert(box.length);
+        // box[box.length] = 88; //在数组的最后位置插入一个元素
+        // //下标正好是 数组的长度
+        // alert(box.length);
+        // box[box.length] = [5,6,7,8];
+        // alert(box.length);
+        
+
+        var box = new Array();
+        alert(box.length); //0
+        var test = new Array(
+            100,
+            'abc',
+            null,
+            {
+                'name':'kangbazi'
+            },
+            true,
+
+        );
+        alert(test.length);//4
+        var python = [200,'hello',false,null,{'name':'xiaowen'}]
+        alert(python.length);//5
+    </script>
+</body>
+</html>
