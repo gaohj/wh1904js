@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟展示</title>
+    <style>
+        #timed {
+            background-color: black;
+            color: white;
+            width: 300px;
+            height: 50px;
+            float: right;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            margin-top: 50px;
+            line-height: 55px;
+            
+        }
+    
+    </style>
+    <script>
+        function times(){
+            var box = new Date();//创建一个时间对象 
+            //获取当前的年月日时分秒 
+            var year = box.getFullYear();
+            var month = box.getMonth();
+            month = month+1;
+            var days = box.getDate();
+            var hours = box.getHours();
+            var minites = box.getMinutes();
+            var seconds = box.getSeconds();
+
+            if(minites<10){
+                minites = "0"+minites;
+            }
+
+            if(seconds<10){
+                seconds = "0"+seconds;
+            }
+
+            document.getElementById('timed').innerHTML = 
+            "<center>"+year+"年"+month+"月"+days+"日"+hours+"时"+minites+"分"+seconds+"秒"+"</center>";
+
+
+        }
+        
+    
+    // window.onload = function(){ 
+    //     //等待页面加载完毕 然后执行相关动作
+    //     var contents = document.getElementById('timed')
+    //     contents.onclick = function(){
+    //         alert('杨杨');
+    //     }
+
+       
+    // }
+    
+    </script>
+</head>
+<body onload="times()">
+    
+    <div id="timed">
+        
+    </div>
+</body>
+</html>
