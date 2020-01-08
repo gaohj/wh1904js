@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数内容属性</title>
+</head>
+<body>
+    <script>
+        //5*4*3*2*1=120
+        // function pandas(num){
+        //     if(num<=1){
+        //         return 1;
+        //     }else{
+        //         return panda(num-1)*num; //这个名字 随着 方法的更改而更改 
+        //         //如果方法名改这里必须改 麻烦  
+        //     }
+        // }
+        function kangbazi1(num){
+            if(num<1){
+                return 1;
+            }else{
+                return arguments.callee(num-1)*num;
+            }
+        }
+
+
+        console.log(kangbazi1(5));//120 
+        //5*panda(4)
+        //5*4*panda(3)
+        //5*4*3*panda(2)
+        //5*4*3*2*1
+    
+    
+    </script>
+</body>
+</html>

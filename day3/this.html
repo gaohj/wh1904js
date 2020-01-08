@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var color = 'orange';
+        // alert(color);
+        // alert(window.color);
+        // alert(this.color);
+
+        //var color = 'red';
+
+        var ball = {
+            'color':'orange',
+            'useColor':function(){
+                alert(this.color); //此时this 在作用域中this代表 orange
+            }
+        }
+
+        //ball.useColor();//orange
+        alert(this.color);//red //this在最外边  所以代表 window
+    
+    </script>
+</body>
+</html>

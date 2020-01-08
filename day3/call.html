@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>call</title>
+</head>
+<body>
+    <script>
+        // var color = 'yellow';
+        // var shehuitianqige = {
+        //     'color':'red',
+        // }
+
+        // function useColor(){
+        //     alert(this.color);
+        // }
+    
+        // // useColor();//yellow
+        // useColor.call(shehuitianqige);//red  使用call 扩展了shehuitianqige作用域 虽然作用域在局部 但是 扩展
+        // useColor.call(window);//作用域在全局 yellow
+        // useColor.call(this);//这里的this 跟window 是一样的  所以它在全局 yellow
+
+        function sums(m,n){
+            // sum = m+n;
+            var sum = m+n;
+            return sum;
+
+        }
+
+        alert(sums(10,20));//30
+        alert(sum);//30 因为你没有加var 所有sum成了全局变量 任何地方都可以调用 
+
+
+    </script>
+</body>
+</html>
