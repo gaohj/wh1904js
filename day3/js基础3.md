@@ -196,7 +196,7 @@ var test = {
 | ------ | ------------ |
 | length | 字符串的长度 |
 
-```
+```js
 var box = '迪丽热巴';
 		console.log(box.length);
         console.log(box.concat('美女叫什么名字','把你写到我家户口本可好','!'));//迪丽热巴美女叫什么名字把你写到我家户口本可好!
@@ -207,4 +207,182 @@ var box = '迪丽热巴';
         console.log(box.substr(1));//丽热巴 从1截取到最后
         console.log(box.substr(-1));//巴 字符串长度+(-1) 截取到最后
 ```
+
+### 位置方法  
+
+| 方法               | 说明                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| indexOf（str,r）   | 从下标为r的位置开始搜到第一个str 如果搜到 返回所在的索引位置否则返回-1 |
+| lastIndexOf(str,r) | 从下标为r的位置开始搜到最后一个str 如果搜到 返回所在的索引位置否则返回-1 |
+
+```
+ var box = 'good good study,day day up';
+        // var test = box.indexOf('ziwen');//-1
+        //var test = box.lastIndexOf('good');//10
+        var test = box.lastIndexOf('good');//5
+        console.log(test);
+        
+```
+
+
+
+## 内置对象之数学对象 
+
+```
+console.log(Math.PI);//3.141592653589793
+        console.log(Math.ceil(12.46788));//13 向上取整
+        console.log(Math.round(4.457));//4 四舍五入 取整
+        console.log(Math.floor(5.123));//5 向下取整
+        console.log(Math.random());//0到1之间的小数 包含0 不包含1 
+```
+
+> 万能公式 
+
+```js
+值=Math.floor(Math.random()*总数+第一个数)
+
+  //5到90之间的随机数   总数是86 第一个数是5
+        console.log(Math.floor(Math.random()*86+5))
+    
+```
+
+
+
+## 双色球   
+
+> 红球  1-33    6个   蓝球  1-16    1个   
+
+```js
+var box = document.getElementById('box');
+var span = box.getElementsByTagName('span');
+var redBall = []; //空数组 用来存放  红球 
+for(var i=0;i<6;i++){   //随机产生6个随机数
+    var rand = Math.floor(Math.random()*33+1); //每次都是1到33之间的随机数 
+    if(redBall.indexOf(rand) == -1){
+        redBall.push(rand);
+    }else{
+        i--;
+    }
+}
+for(var i=0;i<redBall.length;i++){
+    //跟下一个球进行比较
+    for(var j=i+1;j<redBall.length;j++){
+        if(redBall[i]>redBall[j]){
+            var temp = redBall[i];
+            redBall[i] = redBall[j];
+            redBall[j] = temp;
+        }
+    }
+
+}
+var blueball = Math.floor(Math.random()*16+1); //随机生成一个 
+//1-16的蓝球
+redBall.push(blueball);
+for(var i=0;i<span.length;i++){
+    span[i].innerHTML = redBall[i];
+}
+```
+
+
+
+## Dom  
+
+```js
+var divs = document.getElementsByClassName('names');
+        // alert(divs.length);
+        // console.log(divs[0].getAttribute('style')); //background: blue;
+        // divs[0].setAttribute("style","width:50px;height:100px;background:pink");
+        // divs[1].removeAttribute('style');
+        // console.log(divs[1].tagName);
+        // console.log(divs[0].innerHTML);
+
+        console.log(divs[0].nodeType); //元素节点 1 
+        console.log(divs[0].nodeName); //元素节点名称 DIV
+        console.log(divs[0].nodeValue);
+        console.log(divs[0].getAttribute('class').nodeType);//names undefined 
+        console.log(divs[0].attributes[0].nodeType); 
+        //attributes 表示所有的属性 第1个属性的nodetype  因为是属性节点
+        //所以是2 
+        console.log(divs[0].attributes[0].nodeName);//属性名称 从；class
+        console.log(divs[0].attributes[0].nodeValue);
+        console.log(divs[0].childNodes[0].nodeType);//把标签中间的内容看作 div的子节点 子节点的nodetype 因为是个文本 所以是 3
+        console.log(divs[0].childNodes[0].nodeName);//#test
+        console.log(divs[0].childNodes[0].nodeValue);
+
+            //         1
+            //  DIV
+            // null
+            // undefined
+            //2
+            //class
+            //names
+            // 3
+            //#text
+            //我是文本
+
+
+ var divs = document.getElementsByClassName('names');
+        console.log(divs[0].firstChild.nodeType);
+        console.log(divs[0].firstChild.nodeName);
+        console.log(divs[0].childNodes.length);
+        console.log(divs[0].parentNode.nodeName);
+        console.log(divs[0].ownerDocument.nodeName);
+        console.log(divs[0].previousSibling.nodeName);
+        console.log(divs[0].nextSibling.nodeName);
+```
+
+
+
+## 事件   
+
+* 鼠标事件 
+* 键盘事件 
+* HTML事件  
+
+> 语法  on+事件名称  
+
+```js
+html事件
+<script>
+       window.onload = function(){
+            var box = document.getElementById('test')
+            alert(box.innerHTML); 
+       }
+    </script>
+
+    <div id="test">
+        test
+    </div>
+
+
+
+  onselect 选择文本框或者textarea的时候 触发  
+  onblur 失去焦点的时候触发 
+  onsubmit 提交的时候触发 
+  onreset 重置按钮点击的时候触发 
+  onscroll 滚动条滚动的时候触发 
+  
+  
+  window.onscroll = function(){
+        alert('来啊 快活啊');
+    }
+
+
+键盘事件: 
+ onkeydown 按下任意键 触发 按住不放 重复触发  
+ onkeypress 按下键盘字符键 触发  按住不放 重复触发 
+ onkeyup 松开以后才触发  
+ 
+鼠标事件: 
+onclick 点击  
+ondblclick 双击 
+onmousedown 按下鼠标 还没弹起来的时候触发 
+
+onmouseup 弹起来的时候触发  
+onmouseover  鼠标移入的时候触发  
+onmouseout  鼠标移出的时候触发  
+onmousemove 鼠标在区域上移动  触发 
+```
+
+
 
