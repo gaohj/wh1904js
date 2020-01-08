@@ -11,22 +11,37 @@
         var box = '甲流虽然是流感但是大可不必慌张';
         // alert(box.length);
         // alert(box.substring(2));
-        box.name = 'haha';
-        box.eat = function(){
-            alert('kangbazi');
-        }
-        alert(box.name);
-        box.eat();
+        // box.name = 'haha';
+        // box.eat = function(){
+        //     alert('kangbazi');
+        // }
+        // alert(box.name);
+        // box.eat();
 
-        var test = {
-            'username':'kangbazi',
-            'eat':function(){
-                alert('吃鸡');
-            }
-        }
+        // var test = {
+        //     'username':'kangbazi',
+        //     'eat':function(){
+        //         alert('吃鸡');
+        //     }
+        // }
         
-        alert(test.username);
-        test.eat();
+        // alert(test.username);
+        // test.eat();
+        // var box = '迪丽热巴';
+        // console.log(box.concat('美女叫什么名字','把你写到我家户口本可好','!'));//迪丽热巴美女叫什么名字把你写到我家户口本可好!
+
+        // console.log(box.slice(1,3));//丽热
+        // console.log(box.substring(1,3));//丽热
+        // console.log(box.substr(0,3));//迪丽热
+        // console.log(box.substr(1));//丽热巴 从1截取到最后
+        // console.log(box.substr(-1));//巴 字符串长度+(-1) 截取到最后
+        
+        var box = 'good good study,day day up';
+        // var test = box.indexOf('ziwen');//-1
+        //var test = box.lastIndexOf('good');//10
+        var test = box.lastIndexOf('good');//5
+        console.log(test);
+        
     
     </script>
 </body>

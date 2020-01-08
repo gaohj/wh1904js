@@ -147,3 +147,64 @@ function sums(m,n){
         //解决方法 加上var 即可
 ```
 
+## 基本包装类型 
+
+* 字符串
+* number
+* boolean
+
+```js
+var test = {
+            'username':'kangbazi',
+            'eat':function(){
+                alert('吃鸡');
+            }
+        }
+        
+        alert(test.username);
+        test.eat();
+        
+  #只有对象才可以自定义属性 和方法  
+  
+  
+  box.name = 'haha';
+        box.eat = function(){
+            alert('kangbazi');
+        }
+        alert(box.name);
+        box.eat();
+   #字符串 这样是报错的  
+   
+   
+   #但是系统封装了一些属性和方法  供 字符串调用  所以将其称之为 基本包装类型 
+   
+   var box = '甲流虽然是流感但是大可不必慌张';
+   alert(box.length); //15
+   alert(box.substring(2));//截取前两位      虽然是流感但是大可不必慌张
+```
+
+### 方法 
+
+| 方法            | 说明                            |
+| --------------- | ------------------------------- |
+| concat()        | 串联字符串                      |
+| slice(n,m)      | 从下标为n截取到m 包含n 不包含 m |
+| substring(n,m） | 同上                            |
+| substr(n,m)     | 从n开始 截取m个                 |
+
+| 属性   | 说明         |
+| ------ | ------------ |
+| length | 字符串的长度 |
+
+```
+var box = '迪丽热巴';
+		console.log(box.length);
+        console.log(box.concat('美女叫什么名字','把你写到我家户口本可好','!'));//迪丽热巴美女叫什么名字把你写到我家户口本可好!
+
+        console.log(box.slice(1,3));//丽热
+        console.log(box.substring(1,3));//丽热
+        console.log(box.substr(0,3));//迪丽热
+        console.log(box.substr(1));//丽热巴 从1截取到最后
+        console.log(box.substr(-1));//巴 字符串长度+(-1) 截取到最后
+```
+
