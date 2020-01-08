@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>表单验证</title>
+<style type="text/css">
+	input[type=text], input[type=password] {
+		width: 150px;
+		height: 15px;
+	}
+</style>
+<script>
+	function usernameCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementById('username').value;
+		var span = document.getElementById('usernameSpan');
+		
+		var regexp = /^\w{6,20}$/;
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text){
+			msg = '请输入账户名';
+		}else if(!regexp.test(text)){
+			msg = '请输入6到20为的账户名';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function passwordCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementById('password').value;
+		var span = document.getElementById('passwordSpan');
+		
+		var regexp = /^\w{6,30}$/;
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text){
+			msg = '请输入密码';
+		}else if(!regexp.test(text)){
+			msg = '请输入6到30为的密码';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function confirmCheck(){
+		//获取第一次输入的密码 
+		var text = document.getElementById('password').value;
+		var confirm = document.getElementById('confirm').value;
+		var span = document.getElementById('confirmSpan');
+		
+		
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(text != confirm){
+			msg = '两次密码输入不一致';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function emailCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementById('email').value;
+		var span = document.getElementById('emailSpan');
+		
+		var regexp = /^([\w.$-]+)\@([\w.-]+)\.([a-z.我爱你在线网址]+)$/;
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text){
+			msg = '请输入邮箱';
+		}else if(!regexp.test(text)){
+			msg = '请输入正确格式邮箱';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function eduCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementById('edu').value;
+		var span = document.getElementById('eduSpan');
+		
+		
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text){
+			msg = '学历必须选择哦';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function genderCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementsByName('gender');
+		var span = document.getElementById('genderSpan');
+		
+		
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text[0].checked && !text[1].checked){
+			msg = '性别别忘了勾选';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+	function interestCheck(){
+		//获取用户输入的内容 
+		var text = document.getElementsByName('interest');
+		var span = document.getElementById('interestSpan');
+		
+		
+		var msg = ''; //声明一个变量 用来存放错误信息
+		if(!text[0].checked && !text[1].checked && !text[2].checked ){
+			msg = '兴趣也别忘了勾选';
+		}
+
+		span.innerHTML = msg;
+		span.style.color = msg == ""?'black':'red';
+
+		return msg == "";
+
+	}
+
+
+	function checkALL(){
+		var aUsernameCheck = usernameCheck();
+		var aPasswordCheck = passwordCheck();
+		var aConfirmCheck =  confirmCheck();
+		var aEmailCheck = emailCheck();
+		var aEduCheck = eduCheck();
+		var aGenderCheck = genderCheck();
+		var aInterestCheck = interestCheck();
+
+
+		return aUsernameCheck && aPasswordCheck && aConfirmCheck && aEmailCheck && aEduCheck && aGenderCheck && aInterestCheck;
+	}
+
+</script>
+</head>
+<body>
+	<fieldset style="width: 500px; margin: 0px auto;">
+		<b>注册新用户</b>
+		<form action="success.html" method="post" onsubmit="return checkALL()">
+			<table align="center" width="500" cellpadding="5" >
+				<tr>
+					<td width="30%" align="right">账户:</td>
+					<td>
+						<input type="text" id="username" onblur="usernameCheck()" />
+						<!-- 失去焦点执行方法 -->
+						<span id="usernameSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">密码:</td>
+					<td>
+						<input type="password" id="password" onblur="passwordCheck()">
+						<span id="passwordSpan"></span><!-- 提醒错误信息 -->
+					</td>
+				</tr>
+				<tr>
+					<td align="right">确认密码:</td>
+					<td>
+						<input type="password" id="confirm" onblur="confirmCheck()">
+						<span id="confirmSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">邮箱号:</td>
+					<td>
+						<input type="text" id="email" onblur="emailCheck()" />
+						<span id="emailSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">学历:</td>
+					<td>
+						<select id="edu" onchange="eduCheck()">
+							<option value="">-请选择学历-</option>
+							<option value="bj">本科</option>
+							<option value="cd">研究生</option>
+							<option value="gz">博士</option>
+						</select>
+						<span id="eduSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">性别:</td>
+					<td>
+						<label><input type="radio" name="gender" value="male" onclick="genderCheck()"/> 男 </label> 
+						<label><input type="radio" name="gender" value="female" onclick="genderCheck()" /> 女 </label>
+						<span id="genderSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">兴趣:</td>
+					<td>
+						<label><input type="checkbox" name="interest" value="somke" > 吃饭 </label> 
+						<label><input type="checkbox" name="interest" value="drink" onclick="interestCheck()"> 睡觉 </label> 
+						<label><input type="checkbox" name="interest" value="tangtou" onclick="interestCheck()"> 打豆豆 </label> 
+						<span id="interestSpan"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" value="注册新用户"></td>
+				</tr>
+			</table>
+		</form>
+	</fieldset>
+	<script type="text/javascript">
+//			var test=document.getElementsByTagName('b');
+//			alert(test.length);
+//			test[0].onmouseover = function(){
+//				alert("do not touch me!");
+//			}
+	</script>
+</body>
+</html>

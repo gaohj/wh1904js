@@ -445,13 +445,13 @@ var liushui = ['居家生活','潮流电子','时尚衣品','转账红包'];
 
 * ```
    var person = ['zhangsan','lisi','wangwu','zhaoliu'];
-  
+    
           var new_person = [];
-  
+    
           for(i=0;i<person.length;i++){
               new_person.push(person[i]);
           }
-  
+    
           console.log(new_person);
           console.log(person);
   ```
@@ -483,4 +483,26 @@ var liushui = ['居家生活','潮流电子','时尚衣品','转账红包'];
         console.log(office);//["qq", "momo", "tantan"]
         console.log(box2);//["weixin", "dingding"]
 ````
+
+
+
+## 日期 和时间  
+
+```js
+var dates = new Date();
+    console.log(dates);//Tue Jan 07 2020 15:56:50 GMT+0800 (中国标准时间)
+    console.log(dates.toLocaleDateString());//2020/1/7
+    console.log(dates.toLocaleTimeString());//下午3:58:36
+
+    console.log(dates.getTime());//1578384268242 毫秒为单位的日期
+    console.log(dates.getFullYear());//2020 年
+    console.log(dates.getDate());// 1月7日 返回7   天
+    console.log(dates.getDay());//2 星期从0开始 0代表星期天 周几
+    console.log(dates.getHours());//下午4点   返回16 小时
+    console.log(dates.getMinutes());//7 16:07 返回7  分钟
+    console.log(dates.getSeconds());//秒数
+    console.log(dates.getMonth());// 1月  月份从0开始 返回 0 如果要显示 那么需要我们手动加1  
+    dates.setHours(17); //设置小时 
+    console.log(dates.getHours());
+```
 
