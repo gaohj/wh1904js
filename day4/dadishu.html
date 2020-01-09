@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打地鼠</title>
+    <style>
+        table{
+            background: url('images/beijing.jpg') no-repeat;
+        }
+
+        table td {
+            width: 100px;
+            height: 100px;
+        }
+
+        table caption {
+            font-family: "微软雅黑";
+            font-size: 30px;
+        }
+
+        img{
+            margin-top: 30px;
+        }
+    
+    </style>
+</head>
+<body>
+    <table>
+        <caption>打地鼠</caption>
+        <tr>
+            <td><img src="images/keng.gif" alt="keng1"></td>
+            <td><img src="images/keng.gif" alt="keng2"></td>
+            <td><img src="images/keng.gif" alt="keng3"></td>
+        </tr>
+        <tr>
+            <td><img src="images/keng.gif" alt="keng4"></td>
+            <td><img src="images/keng.gif" alt="keng5"></td>
+            <td><img src="images/keng.gif" alt="keng6"></td>
+        </tr>
+        <tr>
+            <td><img src="images/keng.gif" alt="keng7"></td>
+            <td><img src="images/keng.gif" alt="keng8"></td>
+            <td><img src="images/keng.gif" alt="keng9"></td>
+        </tr>
+    </table>
+    <p id="count">分数:</p>
+
+
+    <script>
+        var mouses = document.getElementsByTagName('img');//选中所有的图片
+        var num; //全局变量 图片列表的下标
+        setTimeout(appear,Math.random()*400+800);//打开页面就开始执行  
+        //选中所有的img 作为全局变量来使用  
+        var sum=0; //总分  默认为0 
+
+        //显示地鼠
+        function appear(){
+            num = Math.floor(Math.random()*9); //生成0-8之间的随机数  作为下标
+            mouses[num].src = 'images/dishu.gif'; //显示地鼠就是更改 每个img的src属性  
+            mouses[num].style.marginTop = '0px';
+            //设置每个图片外边距的高度  
+            mouses[num].setAttribute('onclick','kill()');
+            //出来地鼠要进行打击  所以给出来的地鼠绑定一个鼠标点击事件  
+            setTimeout(disappear,Math.random()*400+800);
+            //为了让地鼠 显示以后再消失 执行 消失的方法 
+        }
+
+
+
+        //地鼠消失 
+        function disappear(){
+            mouses[num].src = 'images/keng.gif'; 
+            //让地鼠回去  就是更改src的属性为 keng.gif
+            mouses[num].style.marginTop = '30px'; 
+            //修改 坑 距离top的高度    
+            setTimeout(appear,Math.random()*400+800);
+            //为了实现 出来->消失->出来的效果
+        }
+
+
+        //击打地鼠 
+
+        function kill(){
+            mouses[num].src = 'images/shang.gif';
+            mouses[num].style.marginTop = '3px';
+            sum+=10;
+            //击打一次分数+1
+            mouses[num].removeAttribute('onclick');
+            //为了防止不断的点击分数不断的增加 打中以后 取消该图片的点击事件   
+            document.getElementsByTagName('p')[0].innerHTML = "分数:"+sum;
+
+            //在指定的区域显示总分
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

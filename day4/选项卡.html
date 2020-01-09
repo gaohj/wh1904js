@@ -66,7 +66,23 @@
         var oH3 = oTab.getElementsByTagName('h3');
         var oDiv = oTab.getElementsByTagName('div');
 
-        
+        for(var i=0;i<oH3.length;i++){
+            //给每个选项卡编号 好知道此时你选择是哪个 
+            oH3[i].index=i
+            oH3[i].onmouseover = function(){ //给每个选项卡绑定鼠标移入事件 
+                //alert(i);//每一个选项卡 都是3 
+                // alert(this.index); 
+                //选择选项卡之前先让所有的 class全部取消   
+                for(var i=0;i<oH3.length;i++){
+                    oH3[i].className = '';
+                    oDiv[i].style.display='none';
+                }
+
+                this.className = 'active';
+                oDiv[this.index].style.display = 'block';
+               
+            }
+        }
 
 
 
