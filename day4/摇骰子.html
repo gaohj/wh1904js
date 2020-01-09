@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摇骰子</title>
+</head>
+<body>
+    <img src="imgs/sai1.png" width=100 height=100 id="pic1">
+    <img src="imgs/sai2.png" width=100 height=100 id="pic2">
+    <img src="imgs/sai3.png" width=100 height=100 id="pic3">
+    <button onclick="starts()">开始</button>
+    <button onclick="stops()">结束</button>
+    <script>
+        //思路 修改每个img src属性 
+        //生成1到6之间随机值
+        //拼接一个新的图片路径
+        //不管更换
+        
+        function dong(){
+            var rand1 = Math.floor(Math.random()*6+1);
+            document.getElementById('pic1').src = "imgs/sai"+rand1+".png"
+
+            var rand2 = Math.floor(Math.random()*6+1);
+            document.getElementById('pic2').src = "imgs/sai"+rand2+".png"
+
+            var rand3 = Math.floor(Math.random()*6+1);
+            document.getElementById('pic3').src = "imgs/sai"+rand3+".png"
+        }
+        var m;
+        var buttons = document.getElementsByTagName('button');
+        function starts(){
+            m = setInterval(dong,100);
+            buttons[0].disabled = true;
+            //用户点击了开始 下一次就不能再点击了 只能点击结束
+        }
+
+        function stops(){
+            clearInterval(m);
+            buttons[0].disabled = false;
+            //点击结束按钮 恢复开始按钮
+        }
+    
+    </script>
+</body>
+</html>
