@@ -7,18 +7,18 @@
     <title>dom基础</title>
 </head>
 <body>
-    <p>haha</p><div class="names"><a href="http://www.baidu.com">test</a>
+    <!-- <p>haha</p><div class="names"><a href="http://www.baidu.com">test</a>
         我是文本
     </div><span>kangbazi</span>
     <!-- <div></div> 元素节点  nodetype 1-->
     <!-- class="names" 属性节点 -->
     <!-- 我是文本  文本节点 -->
 
-    <div class="names" style="background: red;">
-    456</div>
+    <!--<div class="names" style="background: red;">
+    456</div> -->
 
 
-    <script>
+    <!-- <script>
         // var divs = document.getElementsByClassName('names');
         // // alert(divs.length);
         // // console.log(divs[0].getAttribute('style')); //background: blue;
@@ -58,7 +58,29 @@
         // console.log(divs[0].ownerDocument.nodeName);
         // console.log(divs[0].previousSibling.nodeName);
         // console.log(divs[0].nextSibling.nodeName);
-        document.write("我给你变个魔术,变什么呀,变得更加喜欢你了");
+        //document.write("我给你变个魔术,变什么呀,变得更加喜欢你了");
+        var divs = document.getElementsByClassName('names');
+        console.log(divs[0].innerText);
+        console.log(divs[0].innerHTML);
+    </script> -->
+    <div>
+        <p>
+
+        </p>
+
+
+    </div>
+    <script>
+        var p1 = document.getElementsByTagName('p');
+        var span = document.createElement('span');
+        var text = document.createTextNode('雨');
+        span.appendChild(text);
+        // alert(p1[0].parentNode.nodeName);
+        // p1[0].appendChild(span);
+        p1[0].parentNode.insertBefore(span,p1[0]);
+    
+    
+    
     </script>
 
 </body>

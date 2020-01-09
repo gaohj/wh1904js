@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var xingming = prompt("你叫什么名字",'测试游戏');
+        // var his =  prompt("当你进入一个森林,希望看到的第一个动物是什么？",'测试游戏');
+        // var her =  prompt("当你进入一个森林,希望看到的下一个动物是什么？",'测试游戏');
+        // var house = prompt("当你进入一个森林,希望看到的下一个动物是什么？",'测试游戏');
+        // var desk = prompt("当你进入屋子看到一个桌子,你觉得是方的还是圆的",'测试游戏');
+
+        // document.write("你的名字叫:"+xingming+"<br />");
+        // document.write("你的前世叫:"+his+"<br />");
+        // document.write("你另一半的名字叫:"+her+"<br />");
+        // document.write("通常情况下你的做事风格是:"+house+"做人风格是:"+desk);
+        // if(window.confirm('请确定或者取消')){
+        //     alert('好的服务一会就来');
+        // }else{
+        //     alert('您取消了服务');
+        // }
+
+        // window.print()
+        // open('http://www.baidu.com');
+        // open('http://www.baidu.com','_parent');//在当前窗口打开
+
+        function back(){
+            history.back();
+        }
+
+        function forward(){
+            history.forward();
+        }
+
+        function go(num){
+            history.go(num);
+        }
+        window.onload = function(){
+            alert(history.length);
+        }
+
+    </script>
+    <a href="douban.html" target="_self">千锋教育</a>
+    <a href="javascript:back()">后退</a>
+    <a href="javascript:forward()">前进</a>
+    <a href="javascript:go(2)">前进到2</a>
+
+</body>
+</html>

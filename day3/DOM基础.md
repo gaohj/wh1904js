@@ -72,10 +72,11 @@ alert('当前浏览器支持getElementById');
 
 元素节点属性
 
-| 属性      | 说明                                |
-| --------- | ----------------------------------- |
-| tagName   | 获取元素节点的标签名                |
-| innerHTML | 获取元素节点里的内容，非W3C DOM规范 |
+| 属性      | 说明                                  |
+| --------- | ------------------------------------- |
+| tagName   | 获取元素节点的标签名                  |
+| innerHTML | 获取元素节点里的内容，非W3C DOM规范   |
+| innerText | 仅仅获取标签中间的文本内容 不包含标签 |
 
 document.getElementById('box').tagName;		//DIV
 
@@ -198,16 +199,16 @@ document.getElementById('box').nodeType;		//1，元素节点
 
 层次节点属性
 
-| 属性            | 说明                                   |
-| --------------- | -------------------------------------- |
-| childNodes      | 获取当前元素节点的所有子节点           |
-| firstChild      | 获取当前元素节点的第一个子节点         |
-| lastChild       | 获取当前元素节点的最后一个子节点       |
-| ownerDocument   | 获取该节点的文档根节点，相当与document |
-| parentNode      | 获取当前节点的父节点                   |
-| previousSibling | 获取当前节点的前一个同级节点           |
-| nextSibling     | 获取当前节点的后一个同级节点           |
-| attributes      | 获取当前元素节点的所有属性节点集合     |
+| 属性            | 说明                                      |
+| --------------- | ----------------------------------------- |
+| childNodes      | 获取当前元素节点的所有子节点 返回的是数组 |
+| firstChild      | 获取当前元素节点的第一个子节点            |
+| lastChild       | 获取当前元素节点的最后一个子节点          |
+| ownerDocument   | 获取该节点的文档根节点，相当与document    |
+| parentNode      | 获取当前节点的父节点  爸爸                |
+| previousSibling | 获取当前节点的前一个同级节点 哥哥         |
+| nextSibling     | 获取当前节点的后一个同级节点  弟弟        |
+| attributes      | 获取当前元素节点的所有属性节点集合        |
 
 1.childNodes属性
 
@@ -375,6 +376,10 @@ DOM不单单可以查找节点，也可以创建节点、复制节点、插入�
 | repalceChild()   | 将新节点替换旧节点                   |
 | cloneNode()      | 复制节点                             |
 | removeChild()    | 移除节点                             |
+
+
+
+
 
 1.write()方法
 
