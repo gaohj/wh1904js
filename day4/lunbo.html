@@ -117,6 +117,8 @@
            }
 
 
+
+
            //自动播放方法 
            function autoplay(){
             play= setInterval(function(){
@@ -141,6 +143,25 @@
             box[0].onmouseout = function(){
                autoplay();
            }  
+
+           //给每一个按钮绑定鼠标移入事件 
+           //鼠标移入按钮 停止播放并且显示指定的图片
+           for(i=0;i<btn.length;i++){
+                btn[i].index1 = i //为了清除的知道选中的哪个按钮  
+                //给按钮编号  类似于给所有一样的乒乓球写上一个号码
+                btn[i].onmouseover = function(){
+                    //alert(i);//所有的按钮都是5
+                    show(this.index1); //选中哪个球 将号码传给show
+                    //显示对应的图片  
+                    index = this.index1;
+                    //自动播放 需要index参数 
+                    //index 全局 自增 
+                    //选中哪个球 获取了哪个求的id 移除以后应该从下一个开始播放   
+                    //需要将这个球的编号 赋值给 index  
+                    clearInterval(play);
+                }
+           }
+
         }
     </script>
     <div id="box"> 
