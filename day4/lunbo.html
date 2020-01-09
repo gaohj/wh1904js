@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        body{
+            background: #cccccc;
+            text-align: center;
+            font-size: 12px;
+
+        }
+        
+        #box{
+            width: 500px;
+            height: 180px;
+            background: #ffffff;
+            margin:10px auto;
+            border: 8px solid #FFFFFF;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        #box .list {
+            width: 490px;
+            height: 180px;
+            background: #ffffff;
+            overflow: hidden;
+            border: 1px solid #FFFFFF;
+            position: relative;
+        }
+
+        #box .list li {
+            width: 490px;
+            height: 180px;
+            position: absolute;
+            opacity: 0; 
+            /* 默认图片都是隐藏的 */
+            transition: opacity 0.5s linear;;
+
+        }
+    
+        #box .list li .current{
+            opacity: 1;
+        }
+        
+        #box .count {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+        }
+
+        #box .count li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background: #f90;
+            border-radius: 50%;
+            color: white;
+            line-height: 20px;
+            opacity: 0.7;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+
+        #box .count li.current{
+            background: #F60;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            //获取元素  
+
+            var box = document.getElementsByTagName('div');
+            var urls = box[0].getElementsByTagName('ul');
+            //获取所有的轮播图片
+            var imgs = urls[0].getElementsByTagName('li')
+
+            //获取所有的按钮
+            var btn = urls[1].getElementsByTagName('li')
+
+            var i=index=0;
+
+            var play;
+
+           //展示图片 传num参数表示展示第几张
+           function show(num){
+                //第几个图片被显示 先全部隐藏 然后让该图片显示
+                for(i=0;i<imgs.length;i++){
+                    imgs[i].style.opacity = 0
+                }
+
+                //btn 按钮也是 先全部取消class样式 然后让指定的按钮增加样式  
+                for(i=0;i<btn.length;i++){
+                    btn[i].className = '';
+                }
+    
+
+                imgs[num].style.opacity = 1; //第几张图片显示 透明度为1  
+                btn[num].className = 'current';
+           }
+
+
+           //自动播放方法 
+           function autoplay(){
+            play= setInterval(function(){
+                    index++;
+                    if(index >= imgs.length){
+                        index =0;
+                    }
+                    show(index);
+               },2000);
+           }
+
+           autoplay();
+
+           //鼠标移入图片 停止轮播  
+           box[0].onmouseover = function(){
+               clearInterval(play)
+           }
+
+
+           //移出开始轮播
+
+            box[0].onmouseout = function(){
+               autoplay();
+           }  
+        }
+    </script>
+    <div id="box"> 
+        <ul class="list">
+            <li style="opacity: 1;" class="current"><img src="imgs/p1.jpg" alt="美女1" width="500px" height="180px"></li>
+            <li style="opacity: 0;"><img src="imgs/p2.jpg" alt="美女2" width="500px" height="180px"></li>
+            <li style="opacity: 0;"><img src="imgs/p3.jpg" alt="美女3" width="500px" height="180px"></li>
+            <li style="opacity: 0;"><img src="imgs/p4.jpg" alt="美女4" width="500px" height="180px"></li>
+            <li style="opacity: 0;"><img src="imgs/p5.jpg" alt="美女5" width="500px" height="180px"></li>
+        </ul>
+
+        <ul class="count">    
+            <li class="current">1</li>
+            <li class="">2</li>
+            <li class="">3</li>
+            <li class="">4</li>
+            <li class="">5</li>
+        </ul>
+    </div>
+</body>
+</html>
