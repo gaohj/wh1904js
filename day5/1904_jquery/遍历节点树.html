@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>遍历节点树</title>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				var body = $('body').children()
+				//alert(body.length);//2
+				var ulls = $('ul').children();
+				//alert(ulls.length);//4
+				var p = $('p').children();
+				//alert(p.length);//0 文本节点不看作是一个子节点     
+				//alert(ulls[1].innerText);//只有文本不含标签   
+				alert($('p').next().html());//标签内部html 标签及内容 
+				alert($('ul').prev().html());//等同于innerHTML
+				
+			})
+		</script>
+	</head>
+	<body>
+		<p title="男人最喜欢的水果"><a href="">男人最喜欢的水果</a></p>
+		<ul>
+			<li title="草莓">straw</li>
+			<li title="香蕉"><a href="#">banana</a></li>
+			<li title="苹果">apple</li>
+			<li title="橘">orange</li>
+		</ul>
+	</body>
+</html>
