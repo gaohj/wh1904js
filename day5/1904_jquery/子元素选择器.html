@@ -6,6 +6,23 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 	</head>
+	<script type="text/javascript">
+		$(function(){
+				$("#btn1").click(function(){
+					$('div.one :nth-child(2)').css('background','green')
+				})
+				$("#btn2").click(function(){
+					$('div.one :first-child').css('background','red');
+				})
+				$("#btn3").click(function(){
+					$('div.one :last-child').css('background','yellow');
+				})
+				$("#btn4").click(function(){
+					$('div.one :only-child').css('background','pink');
+				})
+				
+			});
+	</script>
 	<body>
 		<h3>子元素过滤选择器.</h3>
   <input type="button" value="选取每个class为one的div父元素下的第2个子元素." id="btn1"/>
@@ -25,12 +42,12 @@
     <div class="one"  id="two" title="test" >
 	 id为two,class为one,title为test的div.
       <div class="mini"  title="other">class为mini,title为other</div>
-      <div class="mini"  title="test">class为mini,title为test</div>
+      <div class="mini"  title="test">class为mini2222,title为test</div>
   </div>
 
   <div class="one">
       <div class="mini">class为mini</div>
-      <div class="mini">class为mini</div>
+      <div class="mini">class为mini2</div>
 	  <div class="mini">class为mini</div>
 	  <div class="mini"></div>
   </div>
@@ -39,7 +56,7 @@
 
   <div class="one">
       <div class="mini">class为mini</div>
-      <div class="mini">class为mini</div>
+      <div class="mini">class为mini2222222222</div>
 	  <div class="mini">class为mini</div>
 	  <div class="mini"  title="tesst">class为mini,title为tesst</div>
   </div>
