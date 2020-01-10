@@ -3,23 +3,64 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>ajax</title>
-		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/new_ajax.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			window.onload = function(){
-				var btn = 	document.getElementsByClassName('box');
-				btn[0].onclick = function(){
-					ajax('aa.txt',function(str){
-						//服务器返回的数据通过str传递过来
-						var arr = str;
-						alert(arr);
-						arr = arr.split(',')
-						alert(arr[0])
-					})
+				var btn = document.getElementById('read');
+			btn.onclick = function(){
+					ajax('aa.txt/?kangbazi='+new Date().getTime(),function(str){
+//						var text = str.split(',');
+//						alert(text[0]);
+						alert(str);
+					},function(){
+						alert('失败');
+					});
+					
 				}
 			}
 		</script>
+		-->
+		
+		<script>
+			window.onload = function(){
+				ajax('aa.txt/?new='+new Date().getTime(),function(str){
+					var text = JSON.parse(str);
+					
+					
+					var test = '';
+					test += '<tr>';
+					test += '<td>'+text.city+'</td>'
+					test += '<td>'+text.weather[0].weather+'</td>'
+					test += '<td>'+text.weather[0].wind+'</td>'
+					test += '</tr>';
+
+					document.getElementById('citysearch').innerHTML = test;
+					
+					
+					
+				})
+			}
+			
+			
+		</script>
+		
+		<h1>天气预报</h1>
+		<table border="1">
+			<tr>
+				<th>城市</th>
+				<th>天气</th>
+				<th>风力</th>
+			</tr>
+			<tbody id="citysearch">
+				
+			</tbody>
+		</table>
+		
+		
+		
+		
 		<div class="box">
 			<input type="button" name="read" id="read" value="读取" />
 		</div>

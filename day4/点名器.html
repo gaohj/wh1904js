@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>随机点名器</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #main {
+            margin: 100px;
+            background: #abcdef;
+            width: 520px;
+            padding: 50px;
+            border-radius: 20px 20px 20px 20px;
+            box-shadow: 0 2px 12px #666666;
+        }
+    
+        #box {
+            background: #ff5511;
+            margin: 50px;
+            padding: 20px;
+            font-size: 55px;
+            font-weight: bold;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 2px 12px #666666;
+        }
+    
+        #bt {
+            width: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: green;
+            border-radius: 8px 8px 8px 8px;
+            box-shadow: 0 2px 12px #666666;
+            cursor: pointer;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        var namelist = [
+            "李书柳","尹立","李厚学","吴直成","毛学林","黄鑫","赵鹏程","覃鹏","宋子杰","陈家辉","高亮","江训琦",
+    		"骆训超","洪敬豪","许文刚","刘超","陶锦丞","谢毅","熊万杰","张海涛"
+        ];
+    
+        var mytime = null;
+    
+        function doit() {
+            var bt = window.document.getElementById("bt");
+            if (mytime == null) {
+                bt.innerHTML = "停 止";
+                bt.style.backgroundColor = "red";
+                show();
+            } else {
+                bt.innerHTML = "开 始";
+                bt.style.backgroundColor = "green";
+                clearTimeout(mytime);
+                mytime = null;
+            }
+        }
+    
+        function show() {
+            var box = window.document.getElementById("box");
+    
+            var num = Math.floor((Math.random() * 100000)) % namelist.length;
+            box.innerHTML = namelist[num];
+            mytime = setTimeout("show()", 50);
+        }
+    </script>
+</head>
+<body>
+<center>
+    <div id="main">
+        <div id="box">随机点名器</div>
+        <button id="bt" onclick="doit()">开 始</button>
+    </div>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

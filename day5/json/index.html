@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var persons = [{'username':'xiaowen','age':18,'height':'181cm'},{'username':'yangyang','age':20,'height':'191cm'}];
+//			//js数组 
+//			var test = JSON.stringify(persons);
+//			document.write(test);
+
+	var weathers = '[{"username":"xiaowen","age":18,"height":"181cm"},{"username":"yangyang","age":20,"height":"191cm"}]'
+	
+	var weather = JSON.parse(weathers);
+	document.write(weather[0].username);
+		</script>
+	</body>
+</html>
