@@ -8,27 +8,6 @@
 		"weather": "雨夹雪转小雨",
 		"wind": "无持续风向3-4级",
 		"temp": "3 ~ 0℃"
-	}, {
-		"date": "周六",
-		"icon1": "day\/yin",
-		"icon2": "night\/duoyun",
-		"weather": "阴转多云",
-		"wind": "无持续风向3-4级",
-		"temp": "6 ~ -1℃"
-	}, {
-		"date": "周日",
-		"icon1": "day\/duoyun",
-		"icon2": "night\/duoyun",
-		"weather": "多云",
-		"wind": "东南风微风",
-		"temp": "8 ~ -1℃"
-	}, {
-		"date": "周一",
-		"icon1": "day\/duoyun",
-		"icon2": "night\/duoyun",
-		"weather": "多云",
-		"wind": "东风微风",
-		"temp": "9 ~ 0℃"
 	}],
 	"date": "2020-01-10",
 	"id": "101200101",
