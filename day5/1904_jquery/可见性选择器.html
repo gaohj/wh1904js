@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>可见性选择器</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#btn1').click(function(){
+					$('div:visible').hide(3000).css('background','#FF6600')
+				})
+				
+				
+				$('#btn2').click(function(){
+					$('div:hidden').show(3000).css('background','goldenrod')
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="所有可见的div" id="btn1" />
+		<input type="button" value="所有不可见的div" id="btn2" />
+		<br />
+		<hr />
+
+		<div id="one" class="one">
+			id为one class为one的div
+			<div class="two">
+				class为two的元素
+			</div>
+		</div>
+
+		<div class="one" id="two">
+			id为two class为one的元素
+			<div class="two">class为two的元素div </div>
+			<div class="two">class为two的元素 </div>
+			<div class="two"></div>
+		</div>
+
+		<div class="one" id="two">
+			id为two class为one的元素
+			<div class="two">class为two的元素 </div>
+			<div class="two">class为two的元素 </div>
+			<div class="two">class为two的元素 </div>
+
+		</div>
+
+		<div style="display:none;" class="none">style的display为"none"的div</div>
+
+		<div class="hide">class为"hide"的div</div>
+
+		<div>
+			包含input的type为"hidden"的div<input type="hidden" size="8" />
+		</div>
+		<div class="one" id="one">
+			id为one,class为one的div
+			<div class="two">class为two</div>
+		</div>
+
+		<div class="one" id="two" title="test">
+			id为two,class为one,title为test的div.
+			<div class="two" title="other">class为two,title为other</div>
+			<div class="two" title="test">class为two,title为test</div>
+		</div>
+
+		<div class="one">
+			<div class="two">class为two</div>
+			<div class="two">class为two</div>
+			<div class="two">class为two</div>
+			<div class="two"></div>
+		</div>
+
+		<div class="one">
+			<div class="two">class为two</div>
+			<div class="two">class为two</div>
+			<div class="two">class为two</div>
+			<div class="two" title="tesst">class为mini,title为tesst</div>
+		</div>
+
+		<div style="display:none;" class="none">style的display为"none"的div</div>
+
+		<div class="hide">class为"hide"的div</div>
+
+		<div>
+			包含input的type为"hidden"的div<input type="hidden" size="8" />
+		</div>
+
+		<span id="mover">正在执行动画的span元素.</span>
+
+	</body>
+
+</html>

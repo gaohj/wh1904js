@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<style type="text/css">
+			.content{
+				display: none;
+				padding: 10px;
+				border-top:1px solid deeppink;
+			}
+			
+			.heads{
+				background: #FF1493;
+				padding: 5px;
+				color: wheat;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#test h3.heads").bind("mouseover",function(){
+					$(this).next().show();
+				});
+				
+				$("#test h3.heads").bind("mouseout",function(){
+					$(this).next().hide();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="test">
+			<h3 class="heads">jQuery is so cool</h3>
+			<div class="content">
+				去年一滴相思泪,今年方流到嘴边
+			</div>
+		</div>
+	</body>
+</html>
