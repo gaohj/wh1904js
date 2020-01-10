@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴</title>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				padding: 0;
+			}
+			#menu{
+				width: 300px;
+				
+			}
+			.parents{
+				background: #666;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+			div a{
+				background: #888;
+				float: left;
+				width: 300px;
+				display: none;
+			}
+			
+			.highlight{
+				color:#fff;
+				
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(function(){
+				$('.parents').click(function(){
+					$(this).addClass('highlight') //选中谁给谁添加一个class样式  
+					.children('a').show().end()
+					//并且该元素的子元素a标签 显示   结束之后 统计其他元素 移除
+					//highlight样式 并且同级元素下面的a标签  隐藏
+					.siblings().removeClass('highlight')
+					.children('a').hide();
+				});
+			});
+		</script>
+		<div id="menu">
+			<div class="parents">
+				<span>web</span>
+				<a href="#">python</a>
+				<a href="#">php</a>
+				<a href="#">.net</a>
+				<a href="#">jaee</a>
+			</div>
+			
+			<div class="parents">
+				<span>服务器</span>
+				<a href="#">windows server</a>
+				<a href="#">RHEL</a>
+				<a href="#">Debian</a>
+				<a href="#">Ubuntu</a>
+			</div>
+			
+			<div class="parents">
+				<span>嵌入式</span>
+				<a href="#">c</a>
+				<a href="#">c++</a>
+			</div>
+		</div>
+	</body>
+</html>
