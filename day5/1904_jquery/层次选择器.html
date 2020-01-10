@@ -8,34 +8,31 @@
 		<script type="text/javascript">
 			$(function(){
 				$("#btn1").click(function(){
-					$("#one").css('background','pink');
-				});
-				$("#btn2").click(function(){
-					$('.two').css('background','green');
-				});
-				$("#btn3").click(function(){
-					$('div').css('background','orange');
-				});
-				$("#btn4").click(function(){
-					$('span>.three').css('background','blueviolet');
-				});
-				$("#btn5").click(function(){
-					$('*').css('background','yellow');
+					//类似于css中的 层级选择器 "body内部所有的div元素
+					$("body div").css('background','deeppink')
 				});
 				
-				$("#btn6").click(function(){
-					$('span,.two').css('background','darkgoldenrod');
+				$("#btn2").click(function(){
+					//类似于css中的子类选择器   
+					$('body > div').css('background','green')
 				});
-			})
+				
+				$("#btn3").click(function(){
+					$('.one + div').css('background','greenyellow');
+				});
+				
+				$("#btn4").click(function(){
+					$('.two ~ div ').css('background','orange');
+				});
+			});
+			
 		</script>
 	</head>
 	<body>
-		<input type="button" value="选中id为one的元素" id="btn1"/>
-		<input type="button" value="选中class为two的元素" id="btn2"/>
-		<input type="button" value="选中所有标签为DIV元素" id="btn3"/>
-		<input type="button" value="选中span元素中class为three元素" id="btn4"/>
-		<input type="button" value="选中所有元素" id="btn5"/>
-		<input type="button" value="选中span元素及class为two的元素" id="btn6"/>
+		<input type="button" value="body内部所有的div元素" id="btn1"/>
+		<input type="button" value="body内部子元素是div的" id="btn2"/>
+		<input type="button" value="class为one的下一个div元素" id="btn3"/>
+		<input type="button" value="class为two的所有div的兄弟元素" id="btn4"/>
 		<br />
 		<hr />
 		<div id="one" class="one">
@@ -74,6 +71,8 @@
 				span下面 class为three的元素
 			</div>
 		</span>
-		如果你想,那么嫁给我 带你上车  
+		<span>
+			如果你想,那么嫁给我 带你上车  
+		</span>
 	</body>
 </html>
