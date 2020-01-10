@@ -1,0 +1,168 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style>
+		#da{
+			width:242px;
+			height:20px;
+			}
+		#div1{
+			width:100px;
+			height:20px;
+			border:1px solid;
+			}
+		#div2{
+			width:46px;
+			height:20px;
+			border:1px solid;
+			float:right;
+			margin-top:-22px;
+			margin-right:90px;
+			}
+		#div3{
+			width:100px;
+			height:20px;
+			border:1px solid;
+			float:right;
+			margin-top:-22px;
+			margin-right:-14px;
+			}
+		#da1{
+			width:242px;
+			height:200px;
+			}
+		#div4{
+			width:100px;
+			height:208px;
+			border:1px solid;
+			float:left;
+			margin-top:2px;
+			}
+		#zuo{
+			width:100px;
+			height:208px;
+			}
+		#you{
+			width:100px;
+			height:208px;
+		}
+		#div5{
+			width:46px;
+			height:208px;
+			border:1px solid;
+			float:right;
+			margin-top:2px;
+			margin-right:90px;
+			}
+		#div5 button{
+			width:48px;
+			background-color:pink;
+			}
+		#div6{
+			width:100px;
+			height:208px;
+			border:1px solid;
+			float:right;
+			margin-right:-14px;
+			margin-top:-210px;
+			}
+		#cao{
+			width:70px;
+			height:25px;
+			background-color:pink;
+			float:left;
+			
+			}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#div5>button:eq(0)").click(function(){
+				$("#you").prepend($("#zuo>option:selected")); 
+			});
+			$("#div5>button:eq(1)").click(function(){
+				$("#you").prepend($("#zuo>option"));
+			});
+			$("#div5>button:eq(2)").click(function(){
+				$("#zuo").prepend($("#you>option:selected"));
+			});
+			$("#div5>button:eq(3)").click(function(){
+				$("#zuo").prepend($("#you>option"));
+			});
+			
+			$("#div5>button:eq(4)").click(function(){
+				$("#zuo>option:selected").prev().before($("#zuo>option:selected"))
+			});
+			
+			$("#div5>button:eq(5)").click(function(){
+				$("#zuo>option:selected").next().after($("#zuo>option:selected"))
+			});
+			
+			$("#div5>button:eq(6)").click(function(){
+				$("#zuo>option:first").before($("#zuo>option:selected"))
+			});
+			$("#div5>button:eq(7)").click(function(){
+				$("#zuo>option:last").after($("#zuo>option:selected"))
+			});
+		});
+	</script>
+</head>
+<body>
+	
+<h1>系统选课</h1>
+
+	<div id="da">
+		<div id="div1">
+		可选课程
+		</div>
+		<div id="div2">	
+		</div>
+		<div id="div3">
+		已选课程
+		</div>
+	</div>
+	<div id="da1">
+		<div id="div4">	
+		<select id="zuo" size="10">
+			<option>大学物理</option>
+			<option>阿斯蒂芬</option>
+			<option>规范大哥</option>
+			<option>有人发帖</option>
+			<option>提建议就</option>
+			<option>骬的说法</option>
+			<option>风格仍然</option>			
+			<option>热也容易</option>
+			<option>刚发的广</option>
+			<option>而突然他</option>
+			<option>屠应埈</option>
+			<option>UI</option>
+			<option>根深蒂固</option>
+		</select>
+		</div>
+		<div id="div5">
+			<button>选择</button><br>
+			<button>全选</button><br>
+			<button>退选</button><br>
+			<button>全退</button><br>
+			<button>上移</button><br>
+			<button>下移</button><br>
+			<button>置顶</button><br>
+			<button>置底</button>
+		</div>
+		<div id="div6">
+			<select id="you" size="10">
+			
+			
+			</select>
+		</div>
+	</div>
+	<button id="tj">提交</button>
+</body>
+
+
+</html>
+
+
+
+
+

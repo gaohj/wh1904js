@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实时天气预报</title>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				//给按钮绑定一个点击事件  
+				$('#res').click(function(){
+					//获取输入的内容  
+					var city = $("#search").val();
+					if(city==""){
+						alert('请输入查询的城市');
+						return;
+					}
+					
+					$.ajax({
+						//服务器的地址
+						url:'https://api.asilu.com/weather/',
+						type:'GET',
+						dataType:'jsonp', //通过jsonp实现跨域 
+						//根据同源策略 一个域名只接收同域名的请求 别的域名不接受   
+						//客户端提交到服务器后台的数据
+						data:{
+							'city':city
+						},
+						//接收服务器的返回 
+						success: function(datas){
+							var data = datas
+							
+   							var str = '';
+   							str += '<tr align="center">';
+   							str += '<td>'+data.city+'</td>';
+   							str += '<td>'+data.weather[0].date+'</td>';
+   							str += '<td>'+datas.weather[0].temp+'</td>';
+   							str += '<td>'+data.weather[0].weather+'</td>';
+   							str += '<td>'+data.weather[0].wind+'</td>';
+   							str += '</tr>';
+   							
+   							
+   							
+   							$("#citySearch").html(str);
+						}
+					})
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<h1>天气查询</h1>
+		<table  border="1" class="city_table">
+			<tr>
+				<th>城市</th>
+				<th>日期</th>
+				<th>温度</th>
+				<th>天气</th>
+				<th>风向</th>
+			</tr>
+			<tbody id="citySearch">
+				
+			</tbody>
+		</table>
+		
+		
+		<input type="text" placeholder="请输入要查找的城市" id='search'/>
+		<button id="res">确定</button>
+	</body>
+</html>

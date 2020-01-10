@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建节点</title>
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<script>
+			$(function(){
+				var li1 = $("<li>火龙果</li>")
+				var li2 = $("<li>冰糖雪梨</li>")
+				var li3 = $("<li>葡萄</li>")
+				var li4 = $("<li>橙子</li>")
+				$('ul').append(li1);
+				$('ul').append(li2);
+				$('ul').append(li3);
+				
+				$('ul li:eq(2)').remove() //删除ul下面第二个li
+				
+				//li4插入到葡萄前面 
+				var putao = $("li:eq(2)");
+//				li4.insertBefore(putao); 
+				li4.insertAfter(putao);
+				
+			});
+		</script>
+		<p title="最喜欢的水果">最喜欢的水果</p>
+		<ul>
+			<li>苹果</li>
+			<li>香蕉</li>
+			<li>橘子</li>
+		</ul>
+	</body>
+</html>
