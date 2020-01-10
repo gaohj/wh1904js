@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本内容过滤选择器</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn1").click(function(){
+					$("div:first").css('background','#FF6600')
+				});
+				$("#btn2").click(function(){
+					$("div:last").css('background','red');
+				});
+				$("#btn3").click(function(){
+					$('div:not(.one)').css('background','pink')
+				});
+				$("#btn4").click(function(){
+					$('div:even').css('background','blue');
+				});
+				$("#btn5").click(function(){
+					$('div:odd').css('background','chartreuse');
+				});
+				$("#btn6").click(function(){
+					$('div:gt(2)').css('background','rosybrown');
+				});
+				$("#btn7").click(function(){
+					$('div:eq(2)').css('background','coral');
+				});
+				$("#btn8").click(function(){
+					$('div:lt(2)').css('background','darkred');
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		<input type="button" value="选择第一个div元素" id="btn1"/>
+		<input type="button" value="选择最后一个div元素" id="btn2"/>
+		<input type="button" value="class不为one的所有的div元素" id="btn3"/>
+		<input type="button" value="索引值为偶数的" id="btn4"/>
+		<input type="button" value="索引值为奇数的" id="btn5"/>
+		<input type="button" value="索引值大于2的" id="btn6"/>
+		<input type="button" value="索引值等于2的" id="btn7"/>
+		<input type="button" value="索引值小于2的" id="btn8"/>
+		<br />
+		<hr />
+		
+		<div id="one" class="one">
+			id为one class为one的元素
+			<div class="two">
+				class为two的元素
+			</div>
+		</div>
+		
+		<div class="one" id="two" title="test">
+			class为one的元素 id为two title为test的元素
+			<div class="two" title="other">
+				class为two的元素
+			</div>
+			<div class="two" title="test">
+				class为two的元素
+			</div>
+		</div>
+		
+		<div class="one">
+			class为one的元素
+			<div class="two">
+				class为two的元素
+			</div>
+			<div class="two">
+				class为two的元素
+			</div>
+			<div class="two">
+				class为two的元素
+			</div>
+		</div>
+	
+		<div class="one">
+			class为one的元素
+			<div class="two">
+				class为two的元素
+			</div>
+			<div class="two">
+				class为two的元素
+			</div>
+			<div class="two">
+				class为two的元素
+			</div>
+			<div class="two" title="test">
+				class为two的元素 title为test div
+			</div>
+		</div>
+	
+		<span>
+			你想一夜暴富么？你想生活无忧么？你想身价过亿么？
+			
+			<div class="three">
+				span 下面 class 为three 的元素
+			</div>
+		</span>
+			如果你还想,不如跟我在一起，咱们一起想
+		<span>
+			
+		</span>
+	
+	</body>
+</html>
