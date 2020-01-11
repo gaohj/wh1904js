@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <title>jQuery轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        body{
+            background: #cccccc;
+            text-align: center;
+            font-size: 12px;
+
+        }
+        
+        #box{
+            width: 500px;
+            height: 180px;
+            background: #ffffff;
+            margin:10px auto;
+            border: 8px solid #FFFFFF;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        #box .list {
+            width: 490px;
+            height: 180px;
+            background: #ffffff;
+            overflow: hidden;
+            border: 1px solid #FFFFFF;
+            position: relative;
+        }
+
+        #box .list li {
+            width: 490px;
+            height: 180px;
+            position: absolute;
+            display: none;
+            /* 默认图片都是隐藏的
+            transition: opacity 0.5s linear; */
+
+        }
+    
+        #box .list li .current{
+            display: block;
+        }
+        
+        #box .count {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+        }
+
+        #box .count li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background: #f90;
+            border-radius: 50%;
+            color: white;
+            line-height: 20px;
+            opacity: 0.7;
+            overflow: hidden;
+            margin-right: 5px;
+        }
+
+        #box .count li.current{
+            background:yellow;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+    </style>
+    <script>
+        $(function(){
+            var m = 0; //让第几张图片显示   
+            var s = null;//存储滚动的状态
+            function autoplay(){
+                m++;
+                if(m>$(".list li").length){
+                    m=0;
+                }
+                $(".list li:eq("+m+")").show().siblings().hide();
+                $(".count li:eq("+m+")").addClass('current').siblings().removeClass('current')
+            }
+
+            s = setInterval(autoplay,1000);
+            
+            //两个参数  1.鼠标移入要干嘛2.移出之后要干嘛  
+            $("#box").hover(function(){
+                clearInterval(s); //鼠标移入停止播放  
+            },function(){
+                s = setInterval(autoplay,1000);
+                //鼠标移出 开始播放   
+            });
+
+
+            //给每个按钮绑定鼠标移入事件  
+
+            $(".count li").mouseover(function(){
+
+                //获取每个球的索引值   要不然不知道哪张图片该显示哪个按钮该加样式  
+
+                m = $(this).index();
+                $(".list li:eq("+m+")").show().siblings().hide();
+                $(".count li:eq("+m+")").addClass('current').siblings().removeClass('current')
+            });
+
+        });
+
+
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+   
+    <div id="box"> 
+        <ul class="list">
+            <li style="display: block;"><img src="imgs/p1.jpg" alt="美女1" width="500px" height="180px"></li>
+            <li><img src="imgs/p2.jpg" alt="美女2" width="500px" height="180px"></li>
+            <li ><img src="imgs/p3.jpg" alt="美女3" width="500px" height="180px"></li>
+            <li ><img src="imgs/p4.jpg" alt="美女4" width="500px" height="180px"></li>
+            <li ><img src="imgs/p5.jpg" alt="美女5" width="500px" height="180px"></li>
+        </ul>
+
+        <ul class="count">    
+            <li class="current">1</li>
+            <li class="">2</li>
+            <li class="">3</li>
+            <li class="">4</li>
+            <li class="">5</li>
+        </ul>
+    </div>
+</body>
+</html>
