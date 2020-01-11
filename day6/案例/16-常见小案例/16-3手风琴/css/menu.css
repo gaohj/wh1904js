@@ -1,0 +1,35 @@
+
+
+#container { 
+	width: 200px; 
+	margin: 20px auto;
+	border: solid 1px #006;
+}
+
+#container dt {
+	height: 25px;
+	background:#006;
+	color: #FFF;
+	text-align: center;
+	line-height: 25px;
+	cursor:pointer;
+	border-bottom: solid 1px #999;
+}
+
+#container dd {
+	height: 22px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 22px;
+	cursor:pointer;
+	display:none;
+	border-bottom: solid 1px #999;
+}
+
+#container dd.light {
+	background:#09F;
+}
+
+#container dd.show {
+	display: block;
+}

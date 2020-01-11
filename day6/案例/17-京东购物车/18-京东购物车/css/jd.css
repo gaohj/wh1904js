@@ -1,0 +1,465 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li,ol{
+	list-style: none;
+}
+a{
+	text-decoration:none;
+	color:#333333;
+}
+a:hover{ 
+	color:#009999;
+}
+img{
+	vertical-align: middle;
+}
+.wrap{
+	width: 100%;
+}
+.wrap .top{
+	width: 100%;
+	margin: 0 auto;
+	height: 40px;
+	background-color: #ccc;
+}
+.wrap .top .head{
+	width: 1200px;
+	margin: 0 auto;
+}
+.head p{
+	float: left;
+	line-height: 40px;
+	cursor: pointer;
+}
+.head ul{
+	float: right;
+}
+.head ul li{
+	float: left;
+	line-height: 40px;
+}
+.head ul li img{
+	margin-top: -5px;
+	margin-left: 5px;
+}
+.head ul li a{
+	cursor: pointer;
+	padding-left:10px;
+	padding-right: 10px;
+}
+.main{
+	width: 1200px;
+	margin: 0 auto;
+}
+.main .p1{
+	height: 104px;
+	float: left;
+}
+.main form{
+	float: right;
+	margin-top: 33px;
+}
+.main  form .txt{
+	display: block;
+	width: 272px;
+	height: 24px;
+	border: 2px solid #C91623;
+	float: left;
+}
+.main  form .btn{
+	float: right;
+}
+.main2{
+	height: 30px;
+	clear: both;
+}
+.main2 h3{
+	line-height: 30px;
+	color: #c91623;
+	float: left;
+	text-decoration: underline;
+}
+.main2 .addr{
+	float: right;
+	position: relative;
+}
+.main2 .addr span{
+	padding: 10px 15px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	margin-right: 15px;
+}
+.city{
+	width: 400px;
+	position: absolute;
+	right:0;
+	top:23px;
+	border: 1px solid #ccc;
+	z-index: 1;
+	background-color: white;
+	display: none;
+}
+.city a{
+	color: #0033ff;
+}
+.city ul {
+	margin-top: 10px;
+	width: 395px;
+	height: 35px;
+	border-bottom:2px solid #ff6600;
+	margin-left: 5px;
+}
+.city ul li{
+	float: left;
+	line-height: 33px;
+	height: 33px;
+	border:1px solid #f4f4f4;
+	text-align: center;
+	margin-right:5px;
+	margin-left: 25px;
+}
+ .city ul .overbj{
+	border: 2px solid #ff6600;
+	border-bottom:3px solid #fff;
+} 
+.city ol{
+	width: 400px;
+	display: none;
+	margin-top: 8px;
+}
+.city ol li {
+	width: 400px;
+	text-decoration: center;
+	line-height: 30px;
+}
+.city ol li a{
+	margin-left:25px;
+	margin-right: 25px;
+}
+.city .ol1{
+	display: block;
+}
+.theads{
+	height: 40px;
+	border-bottom: 2px solid #ccc;
+	margin-top: 25px;
+	background-color: #f3f3f3;
+	line-height: 40px;
+}
+.theads p{
+	float: left;
+}
+.theads p span{
+	margin-left: 15px;
+	margin-right: 50px;
+}
+.theads ul{
+	float: right;
+}
+.theads ul li{
+	float: left;
+	margin-right: 80px;
+}
+.t-img{
+	height: 40px;
+	line-height: 40px;
+}
+.t-img p{
+	margin-left: 15px;
+	width:130px;
+}
+.t-img p input{
+	margin-right: 10px;
+}
+.t-img p span{
+	float: right;
+	width: 100px;
+	height: 20px;
+	background-color: #e3393b;
+	border-radius: 8px;
+	color: #fff;
+	line-height: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+.t-img p label{
+	line-height: 40px;
+}
+.tbodys1{
+	height: 110px;
+	border-top: 2px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.tbodys1 span{
+	float: left;
+	line-height: 110px;
+}
+.tbodys1 dl{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+.tbodys1 dl dt{
+	float: left;
+}
+.tbodys1 dl dd{
+	width: 334px;
+	float: left;
+	padding-left: 8px;
+}
+.tbodys1 dl dd p{
+	line-height: 28px;
+}
+.tbodys1 dl dd p img{
+	margin-right: 8px;
+}
+.tbodys1 ul{
+	float: right;
+	padding-top: 30px;
+}
+.tbodys1 .mess1 li{
+	float: left;
+	margin-right:50px; 
+}
+.tbodys1 .mess1 li .txt{
+	width: 60px;
+	height: 20px;
+	text-align: center;
+}
+.tbodys1 .mess1 li .jian,.jia{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+}
+.tbodys1 .mess1 li p{
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.tbodys2{
+	height: 110px;
+	border-top: 2px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.tbodys2 span{
+	float: left;
+	line-height: 110px;
+}
+.tbodys2 dl{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+.tbodys2 dl dt{
+	float: left;
+}
+.tbodys2 dl dd{
+	width: 334px;
+	float: left;
+	padding-left: 8px;
+}
+.tbodys2 dl dd p{
+	line-height: 28px;
+}
+.tbodys2 dl dd p img{
+	margin-right: 8px;
+}
+.tbodys2 ul{
+	float: right;
+	padding-top: 30px;
+}
+.tbodys2 .mess2 li{
+	float: left;
+	margin-right:50px; 
+}
+.tbodys2 .mess2 li .txt{
+	width: 60px;
+	height: 20px;
+	text-align: center;
+}
+.tbodys2 .mess2 li .jian,.jia{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+}
+.tbodys2 .mess2 li p{
+	text-align: center;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.tfoots{
+	height: 50px;
+	border: 1px solid #ccc;
+	margin-top: 20px;
+}
+.tfoots ul{
+	float: left;
+}
+.tfoots ul li{
+	float: left;
+	line-height: 50px;
+	margin-left: 5px;
+	margin-right: 20px;
+}
+.tfoots p{
+	float: right;
+	line-height: 50px;
+	margin-right: 10px;
+}
+.djbj{
+	background-color: #ff6600;
+}
+.main3{
+	height: 275px;
+	margin-top: 25px;
+	border: 1px solid #ccc;
+	position: relative;
+}
+.main3 ol{
+	height: 30px;
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+}
+.main3 ol li{
+	float: left;
+	width: 80px;
+	height: 30px;
+	border: 1px solid #ccc;
+	margin-right: 15px;
+	line-height: 30px;
+	text-align: center;
+	cursor: pointer;
+
+}
+.main3 .on{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-bottom: none;
+	background-color: #fff;
+}
+.main3 ul{
+	margin-top: 5px;
+	position: relative;
+}
+.main3 ul li{
+	float: left;
+	position: absolute;
+	display: none;
+}
+.main3 ul li dl{
+	width: 170px;
+	text-align: center;
+}
+.main3 ul li dl dt img{
+	height: 130px;
+	width: 130px;
+}
+.main3 ul li dl{
+	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.main3 ul li dl dd p{
+	width: 170px;
+	line-height: 26px;
+	text-align: center;
+}
+.main3 ul li dl dd b{
+	float: left;
+	text-align: center;
+	margin-left: 50px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+.main3 ul li dl dd button{
+	float: left;
+	margin-left: 45px;
+}
+.main4{
+	width: 100%;
+	height: 100px;
+	background-color: #f5f5f5;
+	margin-top: 10px;
+}
+.main5{
+	width: 1200px;
+	margin: 0 auto;
+}
+.main5 p{
+	float: left;
+	margin-right: 35px;
+	margin-left: 65px;
+}
+.main5 p img{
+	margin-top: 2px;
+	margin-right:10px;
+}
+.main6{
+	width: 1200px;
+	height: 200px;
+	border-bottom: 1px solid #ccc;
+	margin: 10px auto;
+}
+.main6 ul li{
+	float: left;
+	width: 120px;
+	margin-right: 105px;
+}
+.main6 ul li a{
+	margin-left: 15px;
+	margin-right: 3px;
+	line-height: 28px;
+}
+.main6 ul li b{
+	font-size: 20px;
+	margin-left: 10px;
+}
+.footer{
+	width: 1200px;
+	height: 300px;
+	margin: 30px auto;
+}
+.footer ul{
+	margin-left:80px; 
+}
+.footer ul li{
+	float: left;
+	line-height: 38px;
+}
+.footer ul li a{
+	padding-left:13px;
+	padding-right: 13px;
+}
+.footer p{
+	clear: both;
+	text-align: center;
+	line-height: 28px;
+}
+.footer dl{
+	height: 40px;
+	background-color: #ccc;
+	float: left;
+	margin-left: 60px;
+	margin-top: 15px;
+}
+.footer dl dt{
+	float: left;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.footer dl dd{
+	float: right;
+	width: 100px;
+	line-height: 20px;
+}
+.footer dl .lastdd{
+	width: 186px;
+	padding-left: 15px;
+}

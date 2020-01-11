@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue初体验</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <p>{{username}}</p>
+        <p>{{greet() }}</p>
+        <button @click="username='so big'">更改</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#box",
+            data:{
+                username:'小文',
+            },
+            methods:{
+                greet(){
+                   return 'hello'+ this.username; 
+                }
+            }
+
+
+
+
+        })
+        
+        
+    </script>
+    
+</body>
+</html>

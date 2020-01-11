@@ -1,0 +1,82 @@
+body{height:1800px; background:#FC3;}
+
+#box {
+	width: 360px;
+	height: 420px;
+	margin: 30px auto;
+}
+
+#box dt {
+	border: solid 1px #cccccc;	
+}
+
+#box dd {
+	margin-top: 5px;
+}
+
+#box dd b,
+#box dd s,
+#box dd div{
+	float: left;
+	display: block;
+}
+
+#box dd b,
+#box dd s{
+	width: 17px;
+	height: 54px;
+	background: url(../img/newicon20121210.png) no-repeat;
+}
+
+#box dd b{
+	background-position: -68px -139px;
+}
+
+#box dd s{
+	background-position: -85px -139px;
+}
+
+#box dd b.hover{
+	background-position: -34px -139px;
+}
+
+#box dd s.hover{
+	background-position: -51px -139px;
+}
+
+#box dd div{
+	width: 298px;
+	overflow: hidden;
+	margin: 0 14px;
+}
+
+#box dd div ol {
+
+}
+
+#box dd div ol li{
+	float: left;
+	border: solid 1px #cccccc;
+	margin-right: 9px;
+}
+
+#box dd div ol li.hover{
+	border-color: #F00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

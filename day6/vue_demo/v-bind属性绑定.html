@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue初体验</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <p v-once>{{username}}</p>
+        <!-- 如果显示了不让进行修改 可以加上 v-once -->
+        <!--v-on:click 等同于 @click  -->
+        <button v-on:click="username='要媳妇不要'">点我要媳妇</button>
+        <img v-bind:src='logo' alt="美女">
+        <!-- 想要给img标签加一个属性 -->
+        <!-- 可以通过v-bind v-bind是可以省略的 -->
+        <div>{{code }}</div>
+        <div v-html='code'></div>
+    </div>
+    <script>
+        new Vue({
+           el:'#box',
+           data:{
+               'username':'kangbazi',
+               'logo':'https://cn.vuejs.org/images/logo.png',
+               'code':"<a href='http://www.qfedu.com'>用良心做教育</a>" 
+            //  如果后台返回的是一组 原生html代码   
+            //如果通过 {{}} 进行渲染 势必当作字符串被显示  
+            //如果想显示 正常 html标签效果 那么可以使用v-html来进行绑定  
+
+           }
+        })
+        
+        
+    </script>
+    
+</body>
+</html>
