@@ -11,7 +11,8 @@
     <div id="box">
         <p>{{username}}</p>
         <p>{{greet() }}</p>
-        <button @click="username='so big'">更改</button>
+        <button v-on:click="username='so big'">更改</button>
+        <button @click="greet()">点击修改</button>
     </div>
     <script>
         new Vue({

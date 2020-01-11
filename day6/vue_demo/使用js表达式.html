@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用js表达式</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div :style="{color:res?'red':'green'}">{{message.split(' ').reverse().join(" ")}}</div>
+        <div>{{ !res }}</div> 
+        <!-- 取反 -->
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+               res:false,
+            //    message:'你是年少的欢喜,倒过来念也是'
+               message:'what a fucking day',
+            }
+        });
+    
+    
+    
+    
+    
+    </script>
+</body>

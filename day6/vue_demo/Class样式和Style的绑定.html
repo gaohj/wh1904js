@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue初体验</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .title{
+            font-size: 20px;
+            color: red;
+        }
+
+        .content{
+            font-family: '微软雅黑';
+            font-weight: 800;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p v-bind:class="[class1,class2]">苦海无涯,回头是我</p>
+        <p :class="{title:true,content:strong}">做我女朋友可好,行就答应,不行我再想想别的办v-bind:法</p>
+
+        <p :style="[Style1,Style2]">朋友12划,家人12划,恋人,爱人都是12划,我给你的备注也是12划,12划的名字叫难忘</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                'class1':"title",
+                'class2':'content',
+                strong:false,
+                'Style1':{
+                    'background-color':'pink',
+                    'font-size':'16px'
+                },
+                'Style2':{
+                    'border-bottom':'1px solid #123456',
+                }
+            }
+        });
+    
+    
+    
+    
+    
+    </script>
+</body>

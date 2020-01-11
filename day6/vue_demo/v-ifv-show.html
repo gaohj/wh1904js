@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件判断</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div v-show="FormType=='username'">
+            <label for="username">用户名:</label>
+            <input type="text" name="username" placeholder="请输入用户名" id="username">
+        </div>
+
+        <div v-show="FormType=='email'">
+            <label for="email">邮箱:</label>
+            <input type="text" name="email" placeholder="邮箱" id="email">
+        </div>
+        <div v-if="role=='administrator'">超级管理员</div>
+        <div v-if="role=='user'">普通管理员</div>
+        <div>
+            <button @click="changeFormType()">切换登录类型</button>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                FormType:'email',
+                role:'administrator',
+            },
+            methods:{
+                changeFormType:function(){
+                    this.FormType = this.FormType=='username'?'email':'username';
+                }
+            }
+        });
+    
+    
+    
+    
+    </script>
+</body>
+</html>

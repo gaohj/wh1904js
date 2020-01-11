@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for循环</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>资产</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(person,index) in persons">
+                    <td>{{ index+1 }}</td>
+                    <td>{{ person.username }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.balance }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-for="(value,key) in book">
+            {{key}}/{{value}}
+        </div>
+
+        <div v-for="(person,index) in persons" :key="index">   
+            <label for="姓名">姓名</label>
+            <input type="text" :placeholder="person.username">
+            <label for="年龄">年龄</label>
+            <input type="text" :placeholder="person.age">
+            <label for="资产">资产</label>
+            <input type="text" :placeholder="person.balance">
+        </div>
+        <button @click="changePersonSort()">更改顺序</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                'persons':[
+                    {
+                        'username':'小文',
+                        'age':18,
+                        'balance':'5000万'
+                    },
+                    {
+                        'username':'杨杨',
+                        'age':19,
+                        'balance':'6000万'
+                    },
+                    {
+                        'username':'琪琪',
+                        'age':17,
+                        'balance':'3000万'
+                    },
+                    {
+                        'username':'阳阳',
+                        'age':15,
+                        'balance':'5100万'
+                    }
+                ],
+                'book':{
+                    'name':'mysql从删库到跑路',
+                    'author':'全国H5JAVA',
+                    'price':'100.1'
+                }
+            },
+            methods:{
+                changePersonSort(){
+                    this.persons.sort(function(a,b){
+                        return Math.random(0,1)-0.5
+                    })
+                }
+            }
+           
+        });
+    
+    
+    
+    
+    </script>
+</body>
+</html>

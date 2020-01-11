@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件判断</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <p v-if="weather=='sunny'">压马路</p>
+        <p v-else-if="weather=='rain'">看电影</p>
+        <p v-else>在家运动</p>
+        <!-- 上面一个条件 只有一个html元素   压马路  -->
+
+        <!-- 下面有多个元素 使用 template标签去实现 -->
+        <template v-if="age<18 ">
+            <p>考的怎么样</p>
+            <p>排名第几啊</p>
+            <p>告诉我你的梦想</p>
+        </template>
+
+        <template v-else-if="age>=18 && age<25">
+            <p>工作找到了么</p>
+            <p>女朋友找到了么</p>
+        </template>
+
+        <template v-else>
+            <p>房子买了么</p>
+            <p>要不要二胎</p>
+        </template>
+
+
+        <template v-if="FormType=='username'">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" placeholder="请输入用户名"/>
+        </template> 
+        <template v-if="FormType=='email'">
+            <label for="email">邮箱:</label>
+            <input type="text" id="email" name="email" placeholder="请输入邮箱"/>
+        </template> 
+
+        <template v-if="FormType=='password'">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码"/>
+        </template> 
+
+        <div>
+            <button @click="changeFormType()">切换登录类型</button>
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                weather:'sunny',
+                age:20,
+                FormType:'email'
+            },
+            methods:{
+                changeFormType:function(){
+                    this.FormType = this.FormType=='username'?'email':'password';
+                }
+            }
+        });
+    
+    
+    
+    
+    </script>
+</body>
+</html>
