@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+</head>
+<body>
+    <p>位置的绝对值是:{{ position|abs }}</p>
+{#    <p>个性签名:{{ signature or '此人很懒,什么都没留下' }}</p>#}
+{#    <p>个性签名:{{ signature|safe }}</p>#}
+    <p>{{ person[0] }}</p>
+    <p>{{ person|length }}</p>
+    <p>{{ "我的名字是:%s"|format("heyangyang") }}</p>
+    {% if age|int == 18 %}
+        <p>欢迎光临红浪漫楼上请</p>
+        {% else  %}
+        <p>请大人陪同再来</p>
+    {% endif %}
+    <p>{{ message|replace("man","gentleman") }}</p>
+    <p>{{ message|truncate(length=10) }}</p>
+    <p>{{ message|striptags }}</p>
+    <p>发表时间:{{ pub_time|handle_time }}</p>
+    {% if username == 'kangbazi' %}
+        <p>千锋武汉python</p>
+    {% else %}
+        <p>妈妈我想去学习,好的学,去千锋,好的谢谢妈妈</p>
+    {% endif %}
+
+    <ul>
+         {% for user in users|reverse %}
+             <li>{{ user }}</li>
+         {% endfor %}
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>用户名:</th>
+                <th>身高:</th>
+                <th>国家:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for key,value in people.items() %}
+                    <td>{{ key }}/{{ value }}</td>
+                {% endfor %}
+
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table border="1px solid red">
+        <thead>
+            <th>序号</th>
+            <th>书名</th>
+            <th>价格</th>
+            <th>作者</th>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                {% if loop.first %}
+                    <tr style="background: rebeccapurple">
+                {% elif loop.last %}
+                     <tr style="background: green">
+                {% else %}
+                    <tr>
+                {% endif %}
+
+                    <td>{{ loop.revindex }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.author }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <table border="1px">
+        <tbody>
+            {% for x in range(1,10) %}
+                <tr>
+                    {% for y in range(1,10) if y<=x %}
+                        <td>{{ y }}*{{ x }}={{ x*y }}</td>
+                    {% endfor %}
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% autoescape true%}
+        {{ signature }}
+    {% endautoescape %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    {% include 'common/header.html' %}
+    <div class="container">
+        中间的内容
+{#  不从后台过来 页面自己设置变量  set全局设置#}
+        {% set country="china" %}
+        <p>{{ country }}</p>
+{#        with的话 只能在这个区域里边才行 #}
+        {% with  %}
+            {% set age=18 %}
+            <p>{{ age }}</p>
+        {% endwith %}
+
+
+    <p>{{ age }}</p>
+
+    </div>
+    {% include 'common/footer.html' %}
+</body>
+</html>

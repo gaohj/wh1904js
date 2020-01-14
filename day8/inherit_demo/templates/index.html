@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block headers %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}">
+{% endblock %}
+{% block title %}
+    首页
+{% endblock %}
+
+{% block content %}
+    <div class="test">
+        <p>haha</p>
+    </div>
+    {{ super() }}
+    <h1>我是首页的内容</h1>
+    <div style="background:pink;width: 100px;height:100px;">我是子模板的内容</div>
+    <img src="{{ url_for('static',filename='timg.jpg') }}" alt="美女">
+{% endblock %}
+

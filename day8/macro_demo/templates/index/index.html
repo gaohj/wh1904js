@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宏</title>
+</head>
+{#{% from 'macro/macro.html' import inputs as input_field  %}#}
+{% import 'macro/macro.html' as macros with context %}
+<body>
+    <h1>宏是一个特殊的函数但是没有返回值</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>用户名:</td>
+                <td>{{ macros.inputs('username',placeholder='请输入用户名') }}</td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td>{{ macros.inputs('password',type='password',placeholder='请输入密码') }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ macros.inputs(value='立即提交',type='submit') }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>{{ username }}</p>
+</body>
+</html>
