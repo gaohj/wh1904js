@@ -1,3 +1,46 @@
+## Ubuntu连接数据库报 2003 10061  错误 
+
+```shell
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf  
+
+bind-address = 127.0.0.1 #将它注释或者改成 0.0.0.0 
+
+service mysql restart #重启mysql服务  
+
+
+
+
+mysql -u root -p  
+
+use mysql;  #每个数据安装成功以后 都有自己的mysql 数据库   这里边存放响应的 权限等   
+
+grant 权限  on 库名.表名 to '用户名'@'地址' identified by '密码' with grant option;
+
+
+1 权限  可以写成 insert,select,update,delete 多个权限  用,隔开   all 代表所有的权限  
+2 库名  数据库名 *代表所有数据库的名字  
+3 地址  % 代表所有的地址都可以访问   
+
+
+grant insert,select on test.test to 'qianghua'@'%' identified by '123321' with grant option;   #新建一个用户qianhua 密码123456 可以从任何主机访问数据库服务器 但是只能对 test数据库 test数据表 拥有 插入 和 选择的权限   
+
+flush privileges; #别忘了 更新权限   
+
+revoke 权限名字 on 库名.表名 from '用户名'@'主机地址';
+revoke insert on test.test from 'qianghua'@'%'; #删除权限   
+#删除qianghua 对 test数据库 test数据表的插入权限   
+
+
+
+grant all on *.* to 'root'@'%' identified by '你的密码' with grant option;
+flush privileges; #别忘了 更新权限
+
+```
+
+
+
+
+
 # SQLAlchemy介绍和基本使用
 
 数据库是一个网站的基础。`Flask`可以使用很多种数据库。比如`MySQL`，`MongoDB`,`SQLite`,`PostgreSQL`等。这里我们以`MySQL`为例进行讲解。而在`Flask`中，如果想要操作数据库，我们可以使用`ORM`来操作数据库，使用`ORM`操作数据库将变得非常简单。
@@ -174,10 +217,9 @@ print ed_user.id
 ### query可用参数：
 
 1. 模型对象。指定查找这个模型中所有的对象。
-
 2. 模型中的属性。可以指定只查找某个模型的其中几个属性。
-
-3. 聚合函数。
+3. from sqlalchemy import func 
+4. 聚合函数。
    - `func.count`：统计行的数量。
 
 
