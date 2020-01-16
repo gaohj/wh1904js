@@ -38,9 +38,19 @@ class Users(Base):
     id = Column(Integer,primary_key=True,autoincrement=True)
     username = Column(String(50),nullable=False)
     # articles = relationship('Article')
-
+    extend = relationship("UsersExtend",uselist=False)
     def __repr__(self):
         return "<Users:(username:%s)>" % self.username
+
+class UsersExtend(Base):
+    __tablename__ = 'user_extend'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    cardid = Column(String(18), nullable=False)
+    uid = Column(Integer,ForeignKey('user.id'))
+
+    user = relationship("Users",backref="extends")
+    def __repr__(self):
+        return "<UsersExtend:(cardid:%s)>" % self.cardid
 
 class Article(Base):
     __tablename__ = 'article'
@@ -58,37 +68,20 @@ class Article(Base):
 # Base.metadata.drop_all()
 # Base.metadata.create_all()
 
-# user = Users(username='kangbazi')
-# session.add(user)
-# session.commit()
+# users = Users(username='扛把子666') #先创建用户对象
+# extends = UsersExtend(cardid='123456789111131516')
+# users.extend = extends   #给用户对象的 extend属性 赋值
 #
-user = session.query(Users).first()
-# article = Article(title='科学证明运动让人长寿,这就是为什么要找对象找女哦嗯有',content="找到之后就是长跑高手")
-# article.author = user
-# session.add(article)
+# session.add(users)
 # session.commit()
-#添加文章  先查出用户 拿到用户对象
 
-#可以通过  article.author 指定文章的作者
+# user = session.query(Users).first()  查用户的 身份证号
+# print(user.extends)
 
+user = session.query(Users).first()  #查用户的 身份证号
+print(user.extend)
 
+#身份证号对应的用户
 
-# print(user.articles) #User通过  backref 获取文章的信息
-
-
-# user = session.query(Users).first()
-#
-# print(user.articles) #查看用户写的所有的文章
-
-
-
-#查询用户写了哪些文章
-
-print(user.articles)
-
-
-#这个文章是谁写的
-
-
-articles = session.query(Article).first()
-print(articles.author)
+# userextends = session.query(UsersExtend).first()
+# print(userextends.user)
