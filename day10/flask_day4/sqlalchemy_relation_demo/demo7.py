@@ -13,7 +13,8 @@ from sqlalchemy import (
     Text,
     func,
     or_,
-    ForeignKey
+    ForeignKey,
+    Table
 )
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.ext.declarative import declarative_base
@@ -34,54 +35,60 @@ Base = declarative_base(engine)
 session = sessionmaker(engine)()
 
 class Users(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'useres'
     id = Column(Integer,primary_key=True,autoincrement=True)
     username = Column(String(50),nullable=False)
-    # articles = relationship('Article')
-    extend = relationship("UsersExtend",uselist=False)
     def __repr__(self):
         return "<Users:(username:%s)>" % self.username
 
-class UsersExtend(Base):
-    __tablename__ = 'user_extend'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    cardid = Column(String(18), nullable=False)
-    uid = Column(Integer,ForeignKey('user.id')) #外键
-
-    user = relationship("Users",backref="extends")
-    def __repr__(self):
-        return "<UsersExtend:(cardid:%s)>" % self.cardid
 
 class Article(Base):
     __tablename__ = 'article'
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     content = Column(Text,nullable=False)
-    uid = Column(Integer,ForeignKey('user.id')) #外键也是在表中多了一个字段
-    author = relationship("Users",backref="articles")
+    uid = Column(Integer,ForeignKey("useres.id"),nullable=False)
 
+
+    author = relationship("Users",backref=backref("articles",cascade="all"),cascade="save-update",single_parent=True)
 
     def __repr__(self):
         return "<Article:(title:%s,content:%s)>" % (self.title,self.content)
 
 
+class Comment(Base):
+    __tablename__ = 'comment'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    content = Column(Text, nullable=False)
+    uid =  Column(Integer,ForeignKey("useres.id"))
+    author = relationship("Users",backref="comments")
+    def __repr__(self):
+        return "<Comment:(content:%s)>" % self.content
+
+
 # Base.metadata.drop_all()
 # Base.metadata.create_all()
 
-# users = Users(username='扛把子666') #先创建用户对象
-# extends = UsersExtend(cardid='123456789111131516')
-# users.extend = extends   #给用户对象的 extend属性 赋值
-#
-# session.add(users)
-# session.commit()
+def init_db():
+    user = Users(username='kangbazi')
+    article = Article(title="没有金刚钻别揽瓷器活",content="持之以恒练习俯卧撑")
+    article.author = user
 
-# user = session.query(Users).first()  查用户的 身份证号
-# print(user.extends)
 
-user = session.query(Users).first()  #查用户的 身份证号
-print(user.extend)
+    comment = Comment(content="赵忠祥是多少中老年妇女的偶像")
+    comment.author = user
 
-#身份证号对应的用户
+    session.add_all([article,comment])
+    session.commit()
 
-# userextends = session.query(UsersExtend).first()
-# print(userextends.user)
+def operation():
+    # user = Users(username='yangyang')
+    # session.add(user)
+    user = session.query(Users).get(1)
+    # session.expunge(user)
+    session.delete(user)
+    session.commit()
+
+if __name__ == "__main__":
+    # init_db()
+    operation()

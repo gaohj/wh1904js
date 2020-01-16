@@ -437,7 +437,7 @@ export FLASK_APP='your_app.py'
 将当前的`app`导入到环境变量中后，接下来就是需要初始化一个迁移文件夹：
 
 ```shell
-    flask db init
+    flask db init 第一次需要执行 
 ```
 
 然后再把当前的模型添加到迁移文件中：

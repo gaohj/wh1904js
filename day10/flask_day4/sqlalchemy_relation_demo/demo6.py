@@ -34,31 +34,21 @@ Base = declarative_base(engine)
 session = sessionmaker(engine)()
 
 class Users(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'useres'
     id = Column(Integer,primary_key=True,autoincrement=True)
     username = Column(String(50),nullable=False)
     # articles = relationship('Article')
-    extend = relationship("UsersExtend",uselist=False)
+
     def __repr__(self):
         return "<Users:(username:%s)>" % self.username
 
-class UsersExtend(Base):
-    __tablename__ = 'user_extend'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    cardid = Column(String(18), nullable=False)
-    uid = Column(Integer,ForeignKey('user.id')) #外键
-
-    user = relationship("Users",backref="extends")
-    def __repr__(self):
-        return "<UsersExtend:(cardid:%s)>" % self.cardid
-
-class Article(Base):
-    __tablename__ = 'article'
+class Articles(Base):
+    __tablename__ = 'articles'
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     content = Column(Text,nullable=False)
-    uid = Column(Integer,ForeignKey('user.id')) #外键也是在表中多了一个字段
-    author = relationship("Users",backref="articles")
+    uid = Column(Integer,ForeignKey('useres.id')) #外键也是在表中多了一个字段
+    author = relationship("Users",backref="article")
 
 
     def __repr__(self):
@@ -66,22 +56,15 @@ class Article(Base):
 
 
 # Base.metadata.drop_all()
-# Base.metadata.create_all()
+# # Base.metadata.create_all()
 
-# users = Users(username='扛把子666') #先创建用户对象
-# extends = UsersExtend(cardid='123456789111131516')
-# users.extend = extends   #给用户对象的 extend属性 赋值
+# users= Users(username='kangbazi')
+# articles = Articles(title="我想把草莓重在你37.2℃的土壤里",content="送快递的黄瓜送到了,送鸡蛋的还在框框的砸门")
 #
-# session.add(users)
+# articles.author = users
+# session.add(articles)
 # session.commit()
+user = session.query(Users).first()
+session.delete(user)
+session.commit()
 
-# user = session.query(Users).first()  查用户的 身份证号
-# print(user.extends)
-
-user = session.query(Users).first()  #查用户的 身份证号
-print(user.extend)
-
-#身份证号对应的用户
-
-# userextends = session.query(UsersExtend).first()
-# print(userextends.user)
