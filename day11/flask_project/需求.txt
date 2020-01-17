@@ -40,4 +40,4 @@ pip freeze > requirements.txt #将开发环境中安装的扩展导出u
 把requirements.txt 上传到制定的目录
 切换到requirements.txt 所在的目录
 
-然后pip install -t requirements.txt 即可自动安装 
+然后pip install -t requirements.txt 即可自动安装
