@@ -1,0 +1,43 @@
+1.用户模块
+    注册
+    登录
+2.用户信息管理
+    个人中心
+        头像上传
+        修改邮箱
+        修改密码
+3.博客发表以及回复
+    博客展示
+        分页
+4.收藏
+  点赞
+  统计等
+
+
+* flask_script 项目的根目录
+**apps  程序目录 是一个python包
+*** __init__.py
+***static 静态文件目录
+****css
+****js
+****images
+****favicon.ico
+***templates 模板目录
+***views   所有的视图函数  蓝本
+***models  所有的模型都在这里
+***forms   所有的表单文件 都在这里
+***config.py   所有的配置都写到这里
+***email.py   邮件发送文件
+***extensions.py   所有的扩展文件
+**manage.py 入口文件 主控文件
+
+**migrations 数据库迁移目录
+
+pip freeze > requirements.txt #将开发环境中安装的扩展导出u
+
+导入:
+切换到新的虚拟环境
+把requirements.txt 上传到制定的目录
+切换到requirements.txt 所在的目录
+
+然后pip install -t requirements.txt 即可自动安装 
