@@ -172,7 +172,7 @@ result = session.query(User,func.count(Article.id)).join(Article).group_by(User.
 2. 在子查询中，将以后需要用到的字段通过`label`方法，取个别名。
 3. 在父查询中，如果想要使用子查询的字段，那么可以通过子查询的返回值上的`c`属性拿到。
     整体的示例代码如下：
-```python
+``` python
 dstmt = session.query(User.city.label("city"),User.age.label("age")).filter(User.username=='李A').subquery()
 result = session.query(User).filter(User.city==stmt.c.city,User.age==stmt.c.age).all()
 ```
